@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_height="240dp"
+    android:layout_width="150dp"
+    android:layout_height="220dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="30dp"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
@@ -10,36 +11,50 @@
         android:layout_height="match_parent"
         android:layout_gravity="center">
 
-    <ImageView
-        android:id="@+id/imageSection"
-        android:layout_height="170dp"
-        android:layout_width="170dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/section_rounded"
-        />
+        <TextView
+            android:id="@+id/section_title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Թեմա 1"
+            android:textStyle="bold"
+            android:textColor="#2E2E2E"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageSection"
-        android:textSize="18dp"
-        android:text="13/61"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#585858"
-        />
-
-        <ProgressBar
-            android:layout_height="35dp"
-            android:layout_width="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="25dp"
-            android:layout_below="@id/imageSection"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/ic_baseline_star_24"
-            android:indeterminateTint="@color/main_primary"
             />
+
+        <TextView
+            android:id="@+id/section_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=
+            "Մանևրում, դասավորվածություն\nերթևեկաելի մասում, երթևեկության\nառավելություն"
+            android:textColor="#585858"
+            android:layout_below="@+id/section_title"
+            android:layout_marginLeft="10dp"
+            android:textSize="8dp"/>
+
+    <ImageView
+        android:id="@+id/cardImageSection"
+        android:layout_height="170dp"
+        android:layout_width="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/section_arrows"
+
+        />
+
+        <TextView
+            android:id="@+id/cardCompleteQuestionQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13/61"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="#585858"
+            android:textSize="20dp" />
+
+
 
     </RelativeLayout>
 

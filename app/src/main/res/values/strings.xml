@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">School</string>
+    <string name="section_1_des">\n
+        Մանևրում, դասավորվածություն\n
+        երթևեկաելի մասում, երթևեկության \n
+        առավելություն</string>
 </resources>
