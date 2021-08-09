@@ -42,8 +42,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
         holder.cardImage.setImageResource(card.getImageResId());
         holder.completeQuestions.setText(finalResult);
-       // holder.cardTitleTextView.setText(card.getCardTitle());
-       // holder.cardDescTextView.setText(card.getCardDescription());
+        holder.cardTitleTextView.setText(card.getCardTitle());
+        holder.cardDescTextView.setText(card.getCardDescription());
 
     }
 
@@ -54,8 +54,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     public class DashboardViewHolder extends RecyclerView.ViewHolder{
         ImageView cardImage;
-      //  TextView cardTitleTextView;
-      //  TextView cardDescTextView;
+        TextView cardTitleTextView;
+        TextView cardDescTextView;
         TextView completeQuestions;
 
 
@@ -65,8 +65,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
 
             cardImage = itemView.findViewById(R.id.cardImageSection);
-            //cardTitleTextView = itemView.findViewById(R.id.section_title);
-           // cardDescTextView = itemView.findViewById(R.id.section_description);
+            cardTitleTextView = itemView.findViewById(R.id.section_title);
+            cardDescTextView = itemView.findViewById(R.id.section_description);
             completeQuestions = itemView.findViewById(R.id.cardCompleteQuestionQuantity);
 
 

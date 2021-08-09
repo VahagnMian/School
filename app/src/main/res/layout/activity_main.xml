@@ -7,31 +7,45 @@
     android:orientation="vertical"
     tools:context=".Activity.MainActivity"
     android:background="#f6f6f6"
+    android:fitsSystemWindows="true"
 
    >
 
 
 
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/half_circle"/>
-
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@drawable/toolbar_background"
+        />
 
 
 
-    <TextView
+   <!-- <ScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >-->
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+
+   <TextView
         android:id="@+id/TitleSection"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Թեմաներ"
         android:layout_centerHorizontal="true"
         android:textSize="50dp"
-        android:textColor="#545b67"
-        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="90dp"
 
         />
 
@@ -42,9 +56,15 @@
         android:id="@+id/dashboardRecyclerView"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_below="@+id/TitleSection"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/TitleSection"/>
 
-        />
+    </RelativeLayout>
+
+
+    <!--</ScrollView>-->
+    </ScrollView>
 
 
 

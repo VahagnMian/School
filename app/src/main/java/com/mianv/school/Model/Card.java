@@ -49,6 +49,14 @@ public class Card {
         this.allSectionQuestions = allSectionQuestions;
     }
 
+    public Card(int imageResId, String cardTitle, String cardDescription, int completeQuestions, int allSectionQuestions) {
+        this.imageResId = imageResId;
+        this.cardTitle = cardTitle;
+        this.cardDescription = cardDescription;
+        this.completeQuestions = completeQuestions;
+        this.allSectionQuestions = allSectionQuestions;
+    }
+
     public Card(int imageResId, int completeQuestions, int allSectionQuestions) {
         this.imageResId = imageResId;
         this.completeQuestions = completeQuestions;
