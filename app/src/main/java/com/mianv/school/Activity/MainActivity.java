@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     DashboardAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<Card> cards;
+    ScrollView scrollView;
 
 
 
@@ -38,28 +39,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        toolbar = findViewById(R.id.toolbar);
-        //getSupportActionBar().setElevation(0);
 
-
-
+        viewInitialization();
         createRecyclerView();
-        Card card = new Card(R.drawable.section_arrows_2,"Թեմա 1" , "Մանևրում, դասավորվածություն \nnերթևեկաելի \nnմասում..." , 13, 61);
-        Card card1 = new Card(R.drawable.section_arrows_2,"Թեմա 1" , "Մանևրում, դասավորվածություն \nnերթևեկաելի \nnմասում..." , 13, 61);
-
-        cards.add(card);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-        cards.add(card1);
-
-        ScrollView scrollView = (ScrollView) findViewById(R.id.scroll_view);
+        addTestItemsToRecyclerView();
+        //Overscrolling animation
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
+
+
 
 
 
@@ -76,8 +64,28 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
-       // OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
 
+
+    }
+
+    public void addTestItemsToRecyclerView(){
+        Card card1 = new Card(R.drawable.section_arrows_2,"Թեմա 1" , "Մանևրում, դասավորվածություն \nnերթևեկաելի \nnմասում..." , 13, 61);
+
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+        cards.add(card1);
+    }
+
+    public void viewInitialization(){
+        toolbar = findViewById(R.id.toolbar);
+        scrollView = findViewById(R.id.scroll_view);
     }
 
 }
