@@ -38,12 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         viewInitialization();
         createRecyclerView();
         addTestItemsToRecyclerView();
-       // Overscrolling animation
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
 

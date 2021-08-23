@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.QuizActivity">
+
+    <TextView
+        android:id="@+id/questionCount"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Հարց 1/50"
+        android:layout_marginTop="30dp"
+        android:layout_alignStart="@+id/questionText"
+        android:textSize="20dp"
+        android:textColor="#585858"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="5dp"
+        android:layout_below="@id/questionCount"
+        android:layout_alignStart="@id/questionCount"
+        android:layout_marginTop="20dp"
+        android:layerType="software"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/dotted" />
+
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/questionCount"
+        android:layout_marginTop="50dp"
+        android:textColor="#323232"
+        android:text="Նշաններից որն է կոչվում արգելքի շրջանցումը ձախից"
+        android:textSize="20dp"/>
+
+    <ImageView
+        android:id="@+id/questionImage"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/questionText"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/image_1"
+       android:scaleType="centerCrop"
+
+        />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionImage"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+
+            android:id="@+id/radioButtonVariant1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/radio_button_style"
+            android:background="@drawable/background_style"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="1"
+            android:layout_margin="5dp"
+            android:textSize="14dp"
+
+            />
+
+        <RadioButton
+            android:id="@+id/radioButtonVariant2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/radio_button_style"
+            android:background="@drawable/background_style"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="2"
+            android:textSize="14dp"
+            android:layout_margin="5dp"
+            />
+
+        <RadioButton
+            android:id="@+id/radioButtonVariant3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/radio_button_style"
+            android:background="@drawable/background_style"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="3"
+            android:textSize="14dp"
+            android:layout_margin="5dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonVariant4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/radio_button_style"
+            android:background="@drawable/background_style"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="4"
+            android:textSize="14dp"
+            android:layout_margin="5dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonVariant5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableRight="@drawable/radio_button_style"
+            android:background="@drawable/background_style"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:text="5"
+            android:textSize="14dp"
+            android:layout_margin="5dp"/>
+    </RadioGroup>
+
+</RelativeLayout>
