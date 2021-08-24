@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">School</string>
-    <string name="section_1_des">\nՄանևրում, դասավորվածություն\n
-        երթևեկաելի մասում, երթևեկության \n
-        առավելություն</string>
+    <string name="s1q1">Նշաններից որն է կոչվում արգելքի շրջանցումը ձախից</string>
 </resources>

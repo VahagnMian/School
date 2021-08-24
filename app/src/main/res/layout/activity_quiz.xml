@@ -28,24 +28,24 @@
 
     <TextView
         android:id="@+id/questionText"
-        android:layout_height="wrap_content"
         android:layout_width="300dp"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/questionCount"
-        android:layout_marginTop="50dp"
-        android:textColor="#323232"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
         android:text="Նշաններից որն է կոչվում արգելքի շրջանցումը ձախից"
-        android:textSize="20dp"/>
+        android:textColor="#323232"
+        android:textSize="15dp" />
 
     <ImageView
         android:id="@+id/questionImage"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/questionText"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="6dp"
-        android:src="@drawable/image_1"
-       android:scaleType="centerCrop"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_001"
 
         />
 
@@ -146,5 +146,28 @@
             android:textSize="14dp"
             android:layout_margin="5dp"/>
     </RadioGroup>
+
+    <Button
+        android:id="@+id/nextQuestionButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Հաջորդը"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/previousQuestionButton"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Նախորդը"
+        android:textAllCaps="false" />
+
 
 </RelativeLayout>
