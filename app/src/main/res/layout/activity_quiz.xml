@@ -8,13 +8,14 @@
 
     <TextView
         android:id="@+id/questionCount"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Հարց 1/50"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
         android:layout_alignStart="@+id/questionText"
-        android:textSize="20dp"
-        android:textColor="#585858"/>
+        android:layout_marginTop="30dp"
+        android:text="Հարց 1/61 "
+        android:textColor="#585858"
+        android:textSize="20dp" />
+
 
     <ImageView
         android:layout_width="300dp"
@@ -62,20 +63,20 @@
             android:id="@+id/radioButtonVariant1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_style"
             android:button="@null"
             android:drawableRight="@drawable/radio_button_style"
-            android:background="@drawable/background_style"
-            android:layout_gravity="start"
-            android:textAlignment="textStart"
-            android:paddingBottom="10dp"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
             android:text="1"
-            android:layout_margin="5dp"
+            android:textAlignment="textStart"
             android:textSize="14dp"
 
-            />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
             android:id="@+id/radioButtonVariant2"
@@ -147,27 +148,43 @@
             android:layout_margin="5dp"/>
     </RadioGroup>
 
-    <Button
-        android:id="@+id/nextQuestionButton"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Հաջորդը"
-        android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/previousQuestionButton"
-        android:layout_width="120dp"
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radioGroup"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Նախորդը"
-        android:textAllCaps="false" />
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/white"
+        tools:ignore="BottomAppBar"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/nextQuestionButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Հաջորդը"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main_primary"
+            android:textAllCaps="false"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/previousQuestionButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Նախորդը"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main_primary"
+            android:textAllCaps="false"
+            android:layout_marginLeft="10dp"
+            />
+
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
 
 </RelativeLayout>

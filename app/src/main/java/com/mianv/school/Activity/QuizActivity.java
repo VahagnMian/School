@@ -1,8 +1,6 @@
 package com.mianv.school.Activity;
 
 import static com.mianv.school.Util.Constants.getAllQuestions;
-import static com.mianv.school.Util.Constants.question002;
-import static com.mianv.school.Util.Constants.questions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +14,6 @@ import android.widget.TextView;
 
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
-import com.mianv.school.Util.Constants;
 
 import java.util.ArrayList;
 
@@ -33,9 +30,11 @@ public class QuizActivity extends AppCompatActivity {
     Button previousQuestion;
 
     TextView questionText;
+    TextView questionIndexText;
     ImageView questionImage;
     ArrayList<Question> questions;
     int currentIndex = 0;
+    int checkedIdk;
 
 
 
@@ -46,58 +45,27 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         viewInitialization();
 
+
         if(currentIndex == 0){
             previousQuestion.setVisibility(View.GONE);
         }
 
+        radioGroupSetOnCheckedChangeListener();
 
 
         bindQuestionToViews(questions.get(currentIndex));
 
-        nextQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentIndex++;
-                if(currentIndex == questions.size()-1){
-                    nextQuestion.setVisibility(View.GONE);
-                }
-
-
-                if (currentIndex>0){
-                    previousQuestion.setVisibility(View.VISIBLE);
-                }
-
-
-                Question currentQuestion = questions.get(currentIndex);
-                bindQuestionToViews(currentQuestion);
-            }
-        });
-        previousQuestion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                currentIndex--;
-
-                if (currentIndex != questions.size()){
-                    nextQuestion.setVisibility(View.VISIBLE);
-                }
-
-                    Question currentQuestion = questions.get(currentIndex);
-                    bindQuestionToViews(currentQuestion);
-
-                    if (currentIndex == 0){
-                        previousQuestion.setVisibility(View.GONE);
-                    }
-
-                }
-        });
+        addNextButtonListener();
+        addPreviousButtonListener();
 
 
     }
 
+
     public void bindQuestionToViews(Question question){
         questionText.setText(question.getQuestionText());
         if (question.getImageResID() != 0){
+                 questionImage.setVisibility(View.VISIBLE);
                  questionImage.setImageResource(question.getImageResID());
         }else {
             questionImage.setVisibility(View.GONE);
@@ -110,18 +78,21 @@ public class QuizActivity extends AppCompatActivity {
         if (question.getOptionThree() == ""){
             radioButton3.setVisibility(View.GONE);
         }else {
+            radioButton3.setVisibility(View.VISIBLE);
             radioButton3.setText(question.getOptionThree());
         }
 
         if (question.getOptionFour() == ""){
             radioButton4.setVisibility(View.GONE);
         }else {
+            radioButton4.setVisibility(View.VISIBLE);
             radioButton4.setText(question.getOptionFour());
         }
 
         if (question.getOptionFive() == ""){
             radioButton5.setVisibility(View.GONE);
         }else {
+            radioButton5.setVisibility(View.VISIBLE);
             radioButton5.setText(question.getOptionFive());
 
         }
@@ -141,10 +112,223 @@ public class QuizActivity extends AppCompatActivity {
         radioButton4 = findViewById(R.id.radioButtonVariant4);
         radioButton5 = findViewById(R.id.radioButtonVariant5);
         nextQuestion = findViewById(R.id.nextQuestionButton);
+        questionIndexText = findViewById(R.id.questionCount);
         previousQuestion = findViewById(R.id.previousQuestionButton);
         questions = getAllQuestions();
     }
 
+    public void incrementIndexOfQuestion(){
+        questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/61");
+    }
+
+    public void checkAnswer(Question question){
+
+        if (question.getCorrectAnswer() != checkedIdk){
+            //RadioButton correctRadioButton = findViewById(getRadioButtonIdFromIndex(question.getCorrectAnswer()));
+
+            changeRadioButtonDesignToWrong(checkedIdk);
+            radioGroup.check(question.getCorrectAnswer());
+        }
+
+    }
+
+    public void setCheckedId(){
+        switch (radioGroup.getCheckedRadioButtonId()){
+            case R.id.radioButtonVariant1:
+                checkedIdk = 1;
+                break;
+            case R.id.radioButtonVariant2:
+                checkedIdk = 2;
+                break;
+            case R.id.radioButtonVariant3:
+                checkedIdk = 3;
+                break;
+            case R.id.radioButtonVariant4:
+                checkedIdk = 4;
+                break;
+            case R.id.radioButtonVariant5:
+                checkedIdk = 5;
+                break;
+        }
+    }
+
+    public int getRadioButtonIdFromIndex(int correctAnswer){
+        int correctRadioButton=0;
+        switch (correctAnswer){
+            case 1:
+                correctRadioButton = R.id.radioButtonVariant1;
+            break;
+            case 2:
+                correctRadioButton = R.id.radioButtonVariant2;
+            break;
+            case 3:
+                correctRadioButton = R.id.radioButtonVariant3;
+            break;
+            case 4:
+                correctRadioButton = R.id.radioButtonVariant4;
+            break;
+            case 5:
+                correctRadioButton = R.id.radioButtonVariant5;
+            break;
+
+        }
+
+        return correctRadioButton;
+    }
+
+    public void changeRadioButtonDesignToWrong(RadioButton radioButton){
+        radioButton.setBackgroundResource(R.drawable.radio_button_wrong_answer_background);
+        radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_radio_unchecked_wrong, 0);
+    }
+
+    public void addNextButtonListener(){
+        nextQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentIndex++;
+                if(currentIndex == questions.size()-1){
+                    nextQuestion.setVisibility(View.GONE);
+                }
+
+
+                if (currentIndex>0){
+                    previousQuestion.setVisibility(View.VISIBLE);
+                }
+
+
+                Question currentQuestion = questions.get(currentIndex);
+                bindQuestionToViews(currentQuestion);
+                incrementIndexOfQuestion();
+                radioGroup.setOnCheckedChangeListener(null);
+                radioGroup.clearCheck();
+                uncheckAllRadioGroup();
+                radioGroupSetOnCheckedChangeListener();
+
+
+                if (currentQuestion.getUsersAnswer() != 0) {
+                    if (currentQuestion.getUsersAnswer() != questions.get(currentIndex).getCorrectAnswer()){
+                        changeRadioButtonDesignToWrong(currentQuestion.getUsersAnswer());
+                        radioGroup.setOnCheckedChangeListener(null);
+                        radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
+                    }else {
+                        radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getUsersAnswer()));
+
+                    }
+                }
+
+
+
+            }
+        });
+    }
+
+    public void addPreviousButtonListener(){
+        previousQuestion.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            currentIndex--;
+
+            if (currentIndex != questions.size()){
+                nextQuestion.setVisibility(View.VISIBLE);
+            }
+
+            Question currentQuestion = questions.get(currentIndex);
+
+
+            if (currentIndex == 0){
+                previousQuestion.setVisibility(View.GONE);
+            }
+
+            bindQuestionToViews(currentQuestion);
+            incrementIndexOfQuestion();
+            radioGroup.setOnCheckedChangeListener(null);
+            radioGroup.clearCheck();
+            uncheckAllRadioGroup();
+            radioGroupSetOnCheckedChangeListener();
+
+            if (currentQuestion.getUsersAnswer() != 0) {
+                if (currentQuestion.getUsersAnswer() != questions.get(currentIndex).getCorrectAnswer()){
+                    changeRadioButtonDesignToWrong(currentQuestion.getUsersAnswer());
+                    radioGroup.setOnCheckedChangeListener(null);
+                    radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
+                }else {
+                    radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getUsersAnswer()));
+
+                }
+            }
+        }
+    });}
+
+    public void changeRadioButtonDesignUnchecked(RadioButton radioButton){
+        radioButton.setBackgroundResource(R.drawable.background_style);
+        radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.radio_button_style, 0);
+
+    }
+
+    public void radioGroupSetOnCheckedChangeListener(){
+
+
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                setCheckedId();
+                Question currentQuestion = questions.get(currentIndex);
+                currentQuestion.setUsersAnswer(checkedIdk);
+                 radioGroup.setOnCheckedChangeListener(null);
+                radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
+
+                changeRadioButtonDesignToWrong(questions.get(currentIndex).getUsersAnswer());
+
+
+
+
+
+            }
+        });
+    }
+
+    public void uncheckAllRadioGroup(){
+        changeRadioButtonDesignUnchecked(radioButton1);
+        changeRadioButtonDesignUnchecked(radioButton2);
+        changeRadioButtonDesignUnchecked(radioButton3);
+        changeRadioButtonDesignUnchecked(radioButton4);
+        changeRadioButtonDesignUnchecked(radioButton5);
+    }
+
+    public void checkRadioWithIndex(int radioButtonIndex){
+        switch (radioButtonIndex){
+            case 1:
+                radioGroup.check(R.id.radioButtonVariant1);
+                break;
+
+            case 2:
+                radioGroup.check(R.id.radioButtonVariant2);
+                break;
+
+            case 3:
+                radioGroup.check(R.id.radioButtonVariant3);
+                break;
+
+            case 4:
+                radioGroup.check(R.id.radioButtonVariant4);
+                break;
+
+            case 5:
+                radioGroup.check(R.id.radioButtonVariant5);
+                break;
+        }
+
+
+    }
+
+    public void changeRadioButtonDesignToWrong(int radioGroupIndex){
+        RadioButton radioButton = findViewById(getRadioButtonIdFromIndex(radioGroupIndex));
+        radioButton.setBackgroundResource(R.drawable.radio_button_wrong_answer_background);
+        radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_radio_unchecked_wrong, 0);
+
+    }
 
 
 

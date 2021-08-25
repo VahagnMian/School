@@ -3,7 +3,7 @@ package com.mianv.school.Model;
 public class Question {
 
     int id;
-    int imageResID;
+    int imageResID=0;
     int correctAnswer;
     String questionText;
     String optionOne= "";
@@ -11,6 +11,103 @@ public class Question {
     String OptionThree= "";
     String OptionFour= "";
     String OptionFive="";
+    int usersAnswer=0;
+
+    public int getUsersAnswer() {
+        return usersAnswer;
+    }
+
+    public void setUsersAnswer(int usersAnswer) {
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, int usersAnswer) {
+        this.id = id;
+        this.imageResID = imageResID;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        OptionThree = optionThree;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, String optionFour, String optionFive, int usersAnswer) {
+        this.id = id;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        OptionThree = optionThree;
+        OptionFour = optionFour;
+        OptionFive = optionFive;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int correctAnswer, String questionText, String optionOne, String optionTwo, int usersAnswer) {
+        this.id = id;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, int usersAnswer) {
+        this.id = id;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        OptionThree = optionThree;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, String optionFour, int usersAnswer) {
+        this.id = id;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        OptionThree = optionThree;
+        OptionFour = optionFour;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, int usersAnswer) {
+        this.id = id;
+        this.imageResID = imageResID;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, String optionFour, int usersAnswer) {
+        this.id = id;
+        this.imageResID = imageResID;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        OptionThree = optionThree;
+        OptionFour = optionFour;
+        this.usersAnswer = usersAnswer;
+    }
+
+    public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, String optionFour, String optionFive, int usersAnswer) {
+        this.id = id;
+        this.imageResID = imageResID;
+        this.correctAnswer = correctAnswer;
+        this.questionText = questionText;
+        this.optionOne = optionOne;
+        OptionTwo = optionTwo;
+        OptionThree = optionThree;
+        OptionFour = optionFour;
+        OptionFive = optionFive;
+        this.usersAnswer = usersAnswer;
+    }
 
     public Question(int id, int imageResID, int correctAnswer, String questionText, String optonOne, String optionTwo, String optionThree, String optionFour, String optionFive) {
 
