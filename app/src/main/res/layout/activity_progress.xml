@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ProgressActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/correctCardView"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_centerVertical="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/correctImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_correct_answer_circle_progress"/>
+
+            <TextView
+                android:id="@+id/correctTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Ճիշտ պատասխանված հարցեր"
+                android:textColor="#323232" />
+
+            <TextView
+                android:id="@+id/correctProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24"
+            android:layout_alignRight="@id/correctTextView"
+            android:layout_marginEnd="-20dp"
+            android:layout_centerVertical="true"
+            android:textColor="#009412"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/wrongCardView"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/correctCardView"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/wrongImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_wrong_answer_circle_progress"/>
+
+            <TextView
+                android:id="@+id/wrongTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Սխալ պատասխանված հարցեր"
+                android:textColor="#323232" />
+
+            <TextView
+                android:id="@+id/wrongProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24"
+                android:layout_alignRight="@id/wrongTextView"
+                android:layout_marginEnd="-20dp"
+                android:layout_centerVertical="true"
+                android:textColor="#ff0000"/>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/notAnswredCardView"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/wrongCardView"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/notAnswredImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_not_aswered_circle_progress"/>
+
+            <TextView
+                android:id="@+id/notAnswredTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Ճիշտ պատասխանված հարցեր"
+                android:textColor="#323232" />
+
+            <TextView
+                android:id="@+id/notAnswredProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24"
+                android:layout_alignRight="@id/notAnswredTextView"
+                android:layout_marginEnd="-20dp"
+                android:layout_centerVertical="true"
+                android:textColor="#A5A5A5"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

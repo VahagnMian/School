@@ -11,7 +11,7 @@ public class Question {
     String OptionThree= "";
     String OptionFour= "";
     String OptionFive="";
-    int usersAnswer=0;
+    int usersAnswer;
 
     public int getUsersAnswer() {
         return usersAnswer;

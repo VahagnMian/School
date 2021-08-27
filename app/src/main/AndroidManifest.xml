@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.School">
         <activity
+            android:name=".Activity.ProgressActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.MainActivity"
             android:exported="true" />
         <activity android:name=".Activity.QuizActivity">

@@ -50,7 +50,7 @@ public class QuizActivity extends AppCompatActivity {
             previousQuestion.setVisibility(View.GONE);
         }
 
-        radioGroupSetOnCheckedChangeListener();
+
 
 
         bindQuestionToViews(questions.get(currentIndex));
@@ -58,7 +58,7 @@ public class QuizActivity extends AppCompatActivity {
         addNextButtonListener();
         addPreviousButtonListener();
 
-
+        radioGroupSetOnCheckedChangeListener();
     }
 
 
@@ -121,17 +121,6 @@ public class QuizActivity extends AppCompatActivity {
         questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/61");
     }
 
-    public void checkAnswer(Question question){
-
-        if (question.getCorrectAnswer() != checkedIdk){
-            //RadioButton correctRadioButton = findViewById(getRadioButtonIdFromIndex(question.getCorrectAnswer()));
-
-            changeRadioButtonDesignToWrong(checkedIdk);
-            radioGroup.check(question.getCorrectAnswer());
-        }
-
-    }
-
     public void setCheckedId(){
         switch (radioGroup.getCheckedRadioButtonId()){
             case R.id.radioButtonVariant1:
@@ -176,11 +165,6 @@ public class QuizActivity extends AppCompatActivity {
         return correctRadioButton;
     }
 
-    public void changeRadioButtonDesignToWrong(RadioButton radioButton){
-        radioButton.setBackgroundResource(R.drawable.radio_button_wrong_answer_background);
-        radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_radio_unchecked_wrong, 0);
-    }
-
     public void addNextButtonListener(){
         nextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,16 +189,7 @@ public class QuizActivity extends AppCompatActivity {
                 radioGroupSetOnCheckedChangeListener();
 
 
-                if (currentQuestion.getUsersAnswer() != 0) {
-                    if (currentQuestion.getUsersAnswer() != questions.get(currentIndex).getCorrectAnswer()){
-                        changeRadioButtonDesignToWrong(currentQuestion.getUsersAnswer());
-                        radioGroup.setOnCheckedChangeListener(null);
-                        radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
-                    }else {
-                        radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getUsersAnswer()));
-
-                    }
-                }
+                retrieveCurrentAnswerAtNextAndPrevious(currentQuestion);
 
 
 
@@ -247,16 +222,7 @@ public class QuizActivity extends AppCompatActivity {
             uncheckAllRadioGroup();
             radioGroupSetOnCheckedChangeListener();
 
-            if (currentQuestion.getUsersAnswer() != 0) {
-                if (currentQuestion.getUsersAnswer() != questions.get(currentIndex).getCorrectAnswer()){
-                    changeRadioButtonDesignToWrong(currentQuestion.getUsersAnswer());
-                    radioGroup.setOnCheckedChangeListener(null);
-                    radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
-                }else {
-                    radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getUsersAnswer()));
-
-                }
-            }
+            retrieveCurrentAnswerAtNextAndPrevious(currentQuestion);
         }
     });}
 
@@ -267,20 +233,23 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void radioGroupSetOnCheckedChangeListener(){
-
-
-
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 setCheckedId();
                 Question currentQuestion = questions.get(currentIndex);
                 currentQuestion.setUsersAnswer(checkedIdk);
-                 radioGroup.setOnCheckedChangeListener(null);
-                radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
+                if(currentQuestion.getUsersAnswer() != currentQuestion.getCorrectAnswer()) {
+                    currentQuestion.setUsersAnswer(checkedIdk);
+                    radioGroup.setOnCheckedChangeListener(null);
+                    radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
 
-                changeRadioButtonDesignToWrong(questions.get(currentIndex).getUsersAnswer());
-
+                    changeRadioButtonDesignToWrong(questions.get(currentIndex).getUsersAnswer());
+                }else {
+                    currentQuestion.setUsersAnswer(checkedIdk);
+                    radioGroup.setOnCheckedChangeListener(null);
+                    radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getCorrectAnswer()));
+                }
 
 
 
@@ -297,37 +266,26 @@ public class QuizActivity extends AppCompatActivity {
         changeRadioButtonDesignUnchecked(radioButton5);
     }
 
-    public void checkRadioWithIndex(int radioButtonIndex){
-        switch (radioButtonIndex){
-            case 1:
-                radioGroup.check(R.id.radioButtonVariant1);
-                break;
-
-            case 2:
-                radioGroup.check(R.id.radioButtonVariant2);
-                break;
-
-            case 3:
-                radioGroup.check(R.id.radioButtonVariant3);
-                break;
-
-            case 4:
-                radioGroup.check(R.id.radioButtonVariant4);
-                break;
-
-            case 5:
-                radioGroup.check(R.id.radioButtonVariant5);
-                break;
-        }
-
-
-    }
-
     public void changeRadioButtonDesignToWrong(int radioGroupIndex){
         RadioButton radioButton = findViewById(getRadioButtonIdFromIndex(radioGroupIndex));
         radioButton.setBackgroundResource(R.drawable.radio_button_wrong_answer_background);
         radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_radio_unchecked_wrong, 0);
 
+    }
+
+    public void retrieveCurrentAnswerAtNextAndPrevious(Question currentQuestion){
+        if (currentQuestion.getUsersAnswer() != 0) {
+            if (currentQuestion.getUsersAnswer() != questions.get(currentIndex).getCorrectAnswer()){
+                changeRadioButtonDesignToWrong(currentQuestion.getUsersAnswer());
+                radioGroup.setOnCheckedChangeListener(null);
+                radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
+            }else {
+                radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getUsersAnswer()));
+
+            }
+
+
+        }
     }
 
 
