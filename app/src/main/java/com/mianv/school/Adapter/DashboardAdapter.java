@@ -19,11 +19,20 @@ import java.util.ArrayList;
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>{
 
     ArrayList<Card> cards;
+    OnDashboardItemClickListener listener;
+
 
     public DashboardAdapter(ArrayList<Card> cards){
         this.cards = cards;
     }
 
+    public interface OnDashboardItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnClickListener(OnDashboardItemClickListener listener){
+        this.listener = listener;
+    }
 
     @Override
     public DashboardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -69,6 +78,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             cardDescTextView = itemView.findViewById(R.id.section_description);
             completeQuestions = itemView.findViewById(R.id.cardCompleteQuestionQuantity);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(getAdapterPosition());
+                }
+            });
 
         }
     }

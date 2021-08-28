@@ -1,9 +1,10 @@
 package com.mianv.school.Activity;
 
-import static com.mianv.school.Util.Constants.getAllQuestions;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
+import com.mianv.school.Util.QuestionBank;
 
 import java.util.ArrayList;
 
@@ -33,6 +35,7 @@ public class QuizActivity extends AppCompatActivity {
     TextView questionIndexText;
     ImageView questionImage;
     ArrayList<Question> questions;
+    QuestionBank questionBank;
     int currentIndex = 0;
     int checkedIdk;
 
@@ -44,6 +47,9 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         viewInitialization();
+
+        Intent intent = getIntent();
+        //questionBank = intent.getArr
 
 
         if(currentIndex == 0){
@@ -114,7 +120,7 @@ public class QuizActivity extends AppCompatActivity {
         nextQuestion = findViewById(R.id.nextQuestionButton);
         questionIndexText = findViewById(R.id.questionCount);
         previousQuestion = findViewById(R.id.previousQuestionButton);
-        questions = getAllQuestions();
+        //questions = getAllQuestions();
     }
 
     public void incrementIndexOfQuestion(){

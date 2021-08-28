@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -43,12 +44,25 @@ public class MainActivity extends AppCompatActivity {
         addTestItemsToRecyclerView();
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
+        adapter.setOnClickListener(new DashboardAdapter.OnDashboardItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                    if (position == 0){
+                        goToProgress();
+
+                    }
+            }
+        });
 
 
+    }
 
+    public void goToProgress(){
+        Intent intent = new Intent(getApplicationContext(), ProgressActivity.class);
+        startActivity(intent);
+    }
 
-
-
+    public void goToQuiz(){
 
     }
 
@@ -97,5 +111,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         scrollView = findViewById(R.id.scroll_view);
     }
+
 
 }
