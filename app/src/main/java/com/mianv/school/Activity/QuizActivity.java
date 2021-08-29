@@ -2,6 +2,11 @@ package com.mianv.school.Activity;
 
 
 
+import static com.mianv.school.Util.Constants.getAllQuestions;
+import static com.mianv.school.Util.Util.CORRECT_QUESTION_TAG;
+import static com.mianv.school.Util.Util.NOT_ANSWERED_QUESTION_TAG;
+import static com.mianv.school.Util.Util.WRONG_QUESTION_TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +20,7 @@ import android.widget.TextView;
 
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
+import com.mianv.school.Util.Constants;
 import com.mianv.school.Util.QuestionBank;
 
 import java.util.ArrayList;
@@ -28,14 +34,16 @@ public class QuizActivity extends AppCompatActivity {
     RadioButton radioButton4;
     RadioButton radioButton5;
 
+
     Button nextQuestion;
     Button previousQuestion;
 
     TextView questionText;
     TextView questionIndexText;
+    TextView questionSizeText;
     ImageView questionImage;
+
     ArrayList<Question> questions;
-    QuestionBank questionBank;
     int currentIndex = 0;
     int checkedIdk;
 
@@ -48,9 +56,6 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         viewInitialization();
 
-        Intent intent = getIntent();
-        //questionBank = intent.getArr
-
 
         if(currentIndex == 0){
             previousQuestion.setVisibility(View.GONE);
@@ -59,7 +64,10 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
+
+
         bindQuestionToViews(questions.get(currentIndex));
+        questionSizeText.setText(questions.size() + "");
 
         addNextButtonListener();
         addPreviousButtonListener();
@@ -119,12 +127,47 @@ public class QuizActivity extends AppCompatActivity {
         radioButton5 = findViewById(R.id.radioButtonVariant5);
         nextQuestion = findViewById(R.id.nextQuestionButton);
         questionIndexText = findViewById(R.id.questionCount);
+        questionSizeText = findViewById(R.id.questionSize);
         previousQuestion = findViewById(R.id.previousQuestionButton);
-        //questions = getAllQuestions();
+
+        Intent intent = getIntent();
+        int tag = intent.getIntExtra("ArrayList" , -1);
+
+        /*if(intent != null){
+        switch (intent.getIntExtra("ArrayList", -1)) {
+
+            case CORRECT_QUESTION_TAG:
+                questions = Constants.getCorrectQuestions();
+                break;
+            case WRONG_QUESTION_TAG:
+                questions = Constants.getWrongQuestions();
+                break;
+            case NOT_ANSWERED_QUESTION_TAG:
+                questions = Constants.getNotAnsweredQuestions();
+                break;
+
+            default:
+
+        }
+        }else {
+            questions =Constants.getAllQuestions();
+        }*/
+
+        if ( tag== CORRECT_QUESTION_TAG){
+            questions = Constants.getCorrectQuestions();
+        }else if(tag == WRONG_QUESTION_TAG){
+            questions = Constants.getWrongQuestions();
+        }else if (tag == NOT_ANSWERED_QUESTION_TAG){
+            questions = Constants.getNotAnsweredQuestions();
+        }else {
+            questions = Constants.getAllQuestions();
+        }
+
+
     }
 
     public void incrementIndexOfQuestion(){
-        questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/61");
+        questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/");
     }
 
     public void setCheckedId(){

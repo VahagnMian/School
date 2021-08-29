@@ -1,5 +1,9 @@
 package com.mianv.school.Activity;
 
+import static com.mianv.school.Util.Util.CORRECT_QUESTION_TAG;
+import static com.mianv.school.Util.Util.NOT_ANSWERED_QUESTION_TAG;
+import static com.mianv.school.Util.Util.WRONG_QUESTION_TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -8,12 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 import com.mianv.school.Util.Constants;
 import com.mianv.school.Util.QuestionBank;
-
-import java.util.ArrayList;
 
 public class ProgressActivity extends AppCompatActivity {
 
@@ -90,11 +91,11 @@ public class ProgressActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (cardView == findViewById(R.id.correctCardView)){
-                    startIntentAndPutArray(questionBank);
+                    startIntentAndPutTag(CORRECT_QUESTION_TAG);
                 }else if (cardView ==  findViewById(R.id.wrongCardView)){
-                    startIntentAndPutArray(questionBank);
+                    startIntentAndPutTag(WRONG_QUESTION_TAG);
                 }else if (cardView == findViewById(R.id.notAnswredCardView)){
-                    startIntentAndPutArray(questionBank);
+                    startIntentAndPutTag(NOT_ANSWERED_QUESTION_TAG);
                 }
 
 
@@ -105,9 +106,9 @@ public class ProgressActivity extends AppCompatActivity {
 
 
 
-    public void startIntentAndPutArray(QuestionBank questionBank){
+    public void startIntentAndPutTag(int question_tag){
         Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
-        intent.putExtra("correctArrayList", questionBank.getCorrectQuestions());
+        intent.putExtra("ArrayList", question_tag);
         startActivity(intent);
     }
 

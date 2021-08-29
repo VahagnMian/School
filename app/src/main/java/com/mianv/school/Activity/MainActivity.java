@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 import com.mianv.school.Adapter.DashboardAdapter;
 import com.mianv.school.Model.Card;
 import com.mianv.school.R;
+import com.mianv.school.Util.Constants;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -48,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                     if (position == 0){
-                        goToProgress();
-
+                        if (Constants.getNotAnsweredQuestions().size() == Constants.getAllQuestions().size()){
+                            goToQuiz();
+                        }else {
+                            goToProgress();
+                        }
                     }
             }
         });
@@ -63,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToQuiz(){
-
+         Intent intent = new Intent(getApplicationContext(),  QuizActivity.class);
+         startActivity(intent);
     }
 
 

@@ -12,7 +12,18 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/questionText"
         android:layout_marginTop="30dp"
-        android:text="Հարց 1/61 "
+        android:text="Հարց 1/"
+        android:textColor="#585858"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/questionSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/questionText"
+        android:layout_marginTop="30dp"
+        android:text="61 "
+        android:layout_marginLeft="78dp"
         android:textColor="#585858"
         android:textSize="20dp" />
 
