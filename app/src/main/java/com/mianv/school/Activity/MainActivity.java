@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +17,9 @@ import android.widget.ScrollView;
 
 
 import com.mianv.school.Adapter.DashboardAdapter;
+import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Model.Card;
+import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 import com.mianv.school.Util.Constants;
 
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<Card> cards;
      ScrollView scrollView;
+     //QuestionAppDatabase questionAppDatabase;
+     ArrayList<Question> questions;
 
 
 
@@ -39,11 +44,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        questions = Constants.getAllQuestions();
 
         viewInitialization();
         createRecyclerView();
         addTestItemsToRecyclerView();
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+
+
+
 
         adapter.setOnClickListener(new DashboardAdapter.OnDashboardItemClickListener() {
             @Override
@@ -57,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     }
             }
         });
+
 
 
     }

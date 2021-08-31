@@ -36,6 +36,7 @@ public class ProgressActivity extends AppCompatActivity {
 
 
 
+
         Initialization();
 
 
@@ -47,10 +48,6 @@ public class ProgressActivity extends AppCompatActivity {
         addListenerToCardView(notAnsweredCardView);
 
 
-        /*correctAnswersProgress.setText(questionBank.getCorrectQuestions().size()+ "");
-        wrongAnswersProgress.setText(questionBank.getWrongQuestions().size()+ "");
-        notAnsweredAnswerProgress.setText(questionBank.getNotAnsweredQuestions().size()+ "");
-*/
         correctAnswersProgress.setText(Constants.getCorrectQuestions().size()+ "");
         wrongAnswersProgress.setText(Constants.getWrongQuestions().size()+ "");
         notAnsweredAnswerProgress.setText(Constants.getNotAnsweredQuestions().size()+ "");

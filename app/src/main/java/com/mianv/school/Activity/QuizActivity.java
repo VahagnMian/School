@@ -8,6 +8,7 @@ import static com.mianv.school.Util.Util.NOT_ANSWERED_QUESTION_TAG;
 import static com.mianv.school.Util.Util.WRONG_QUESTION_TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 import com.mianv.school.Util.Constants;
@@ -42,7 +44,9 @@ public class QuizActivity extends AppCompatActivity {
     TextView questionIndexText;
     TextView questionSizeText;
     ImageView questionImage;
+    QuestionAppDatabase questionAppDatabase;
 
+    int tag;
     ArrayList<Question> questions;
     int currentIndex = 0;
     int checkedIdk;
@@ -54,12 +58,15 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        //questionAppDatabase = Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class, "QuestionsDB").allowMainThreadQueries().build();
         viewInitialization();
 
 
         if(currentIndex == 0){
             previousQuestion.setVisibility(View.GONE);
         }
+
+
 
 
 
@@ -131,36 +138,22 @@ public class QuizActivity extends AppCompatActivity {
         previousQuestion = findViewById(R.id.previousQuestionButton);
 
         Intent intent = getIntent();
-        int tag = intent.getIntExtra("ArrayList" , -1);
+        tag = intent.getIntExtra("ArrayList" , -1);
 
-        /*if(intent != null){
-        switch (intent.getIntExtra("ArrayList", -1)) {
 
-            case CORRECT_QUESTION_TAG:
-                questions = Constants.getCorrectQuestions();
-                break;
-            case WRONG_QUESTION_TAG:
-                questions = Constants.getWrongQuestions();
-                break;
-            case NOT_ANSWERED_QUESTION_TAG:
-                questions = Constants.getNotAnsweredQuestions();
-                break;
-
-            default:
-
-        }
-        }else {
-            questions =Constants.getAllQuestions();
-        }*/
 
         if ( tag== CORRECT_QUESTION_TAG){
             questions = Constants.getCorrectQuestions();
+            removeUserAnswer(questions);
         }else if(tag == WRONG_QUESTION_TAG){
             questions = Constants.getWrongQuestions();
+            removeUserAnswer(questions);
         }else if (tag == NOT_ANSWERED_QUESTION_TAG){
             questions = Constants.getNotAnsweredQuestions();
+            removeUserAnswer(questions);
         }else {
             questions = Constants.getAllQuestions();
+            removeUserAnswer(questions);
         }
 
 
@@ -238,7 +231,7 @@ public class QuizActivity extends AppCompatActivity {
                 radioGroupSetOnCheckedChangeListener();
 
 
-                retrieveCurrentAnswerAtNextAndPrevious(currentQuestion);
+                  retrieveCurrentAnswerAtNextAndPrevious(currentQuestion);
 
 
 
@@ -271,11 +264,13 @@ public class QuizActivity extends AppCompatActivity {
             uncheckAllRadioGroup();
             radioGroupSetOnCheckedChangeListener();
 
-            retrieveCurrentAnswerAtNextAndPrevious(currentQuestion);
+
+                retrieveCurrentAnswerAtNextAndPrevious(currentQuestion);
+
         }
     });}
 
-    public void changeRadioButtonDesignUnchecked(RadioButton radioButton){
+  public void changeRadioButtonDesignUnchecked(RadioButton radioButton){
         radioButton.setBackgroundResource(R.drawable.background_style);
         radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.radio_button_style, 0);
 
@@ -286,12 +281,17 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 setCheckedId();
-                Question currentQuestion = questions.get(currentIndex);
-                currentQuestion.setUsersAnswer(checkedIdk);
+
+                 Question currentQuestion = questions.get(currentIndex);
+                 currentQuestion.setUsersAnswer(checkedIdk);
+
+                 questions.add(currentQuestion);
+
                 if(currentQuestion.getUsersAnswer() != currentQuestion.getCorrectAnswer()) {
                     currentQuestion.setUsersAnswer(checkedIdk);
                     radioGroup.setOnCheckedChangeListener(null);
                     radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
+
 
                     changeRadioButtonDesignToWrong(questions.get(currentIndex).getUsersAnswer());
                 }else {
@@ -338,6 +338,13 @@ public class QuizActivity extends AppCompatActivity {
     }
 
 
+    public void removeUserAnswer(ArrayList<Question> questions){
+
+        for (int i = 0; i < questions.size() ; i++) {
+            questions.get(i).setUsersAnswer(0);
+        }
+
+    }
 
 
 

@@ -1,5 +1,8 @@
 package com.mianv.school.Util;
 
+import com.mianv.school.Activity.MainActivity;
+import com.mianv.school.Activity.QuizActivity;
+import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 
@@ -8,6 +11,7 @@ import java.util.ArrayList;
 public class Constants {
 
     public static ArrayList<Question> allQuestions = new ArrayList<>();
+
 
     public static final Question question001 = new Question(1, R.drawable.image_001, 3 ,
             "Նշաններից որն է կոչվում արգելքի շրջանցումը ձախից" ,
@@ -614,6 +618,7 @@ public class Constants {
         return notAnsweredQuestions;
 
     }
+
 
 
 
