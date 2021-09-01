@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class Constants {
 
-    public static ArrayList<Question> allQuestions = new ArrayList<>();
-
 
     public static final Question question001 = new Question(1, R.drawable.image_001, 3 ,
             "Նշաններից որն է կոչվում արգելքի շրջանցումը ձախից" ,
@@ -551,75 +549,6 @@ public class Constants {
             question061
     };
 
-
-    public static ArrayList<Question> getAllQuestions(){
-
-        allQuestions.clear();
-
-        allQuestions.add(question001);
-        allQuestions.add(question002);
-        allQuestions.add(question003);
-        allQuestions.add(question004);
-        allQuestions.add(question005);
-        allQuestions.add(question006);
-        allQuestions.add(question007);
-        allQuestions.add(question008);
-        allQuestions.add(question009);
-        allQuestions.add(question010);
-        allQuestions.add(question011);
-        allQuestions.add(question012);
-        allQuestions.add(question013);
-        allQuestions.add(question014);
-        allQuestions.add(question015);
-        allQuestions.add(question016);
-        allQuestions.add(question017);
-        allQuestions.add(question018);
-        allQuestions.add(question019);
-        allQuestions.add(question020);
-        allQuestions.add(question021);
-        allQuestions.add(question022);
-        allQuestions.add(question023);
-        allQuestions.add(question024);
-        allQuestions.add(question025);
-        allQuestions.add(question026);
-        allQuestions.add(question027);
-        allQuestions.add(question028);
-        allQuestions.add(question029);
-        allQuestions.add(question030);
-        allQuestions.add(question031);
-        allQuestions.add(question032);
-        allQuestions.add(question033);
-        allQuestions.add(question034);
-        allQuestions.add(question035);
-        allQuestions.add(question036);
-        allQuestions.add(question037);
-        allQuestions.add(question038);
-        allQuestions.add(question039);
-        allQuestions.add(question040);
-        allQuestions.add(question041);
-        allQuestions.add(question042);
-        allQuestions.add(question043);
-        allQuestions.add(question044);
-        allQuestions.add(question045);
-        allQuestions.add(question046);
-        allQuestions.add(question047);
-        allQuestions.add(question048);
-        allQuestions.add(question049);
-        allQuestions.add(question050);
-        allQuestions.add(question051);
-        allQuestions.add(question052);
-        allQuestions.add(question053);
-        allQuestions.add(question054);
-        allQuestions.add(question055);
-        allQuestions.add(question056);
-        allQuestions.add(question057);
-        allQuestions.add(question058);
-        allQuestions.add(question059);
-        allQuestions.add(question060);
-        allQuestions.add(question061);
-
-        return allQuestions;
-    }
 
 
 
