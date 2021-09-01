@@ -8,28 +8,39 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "questions")
 public class Question {
 
+
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "question_id")
+    @ColumnInfo(name = "id")
     private int id;
 
+
+    @ColumnInfo(name = "imageResID")
     private int imageResID=0;
 
     @ColumnInfo(name = "correct_answer")
     private int correctAnswer;
+
+    @ColumnInfo(name = "question_text")
     private String questionText;
-    private String optionOne= "";
-    private String OptionTwo= "";
-    private String OptionThree= "";
-    private String OptionFour= "";
-    private String OptionFive="";
+
+    @ColumnInfo(name = "option_one")
+    private String optionOne;
+
+    @ColumnInfo(name = "option_two")
+    private String OptionTwo;
+
+    @ColumnInfo(name = "option_three")
+    private String OptionThree;
+
+    @ColumnInfo(name = "option_four")
+    private String optionFour;
+
+    @ColumnInfo(name = "option_five")
+    private String optionFive;
 
     @ColumnInfo(name = "user_answer")
     private int usersAnswer = 0;
 
-    public Question(int id, int usersAnswer){
-        this.id = id;
-        this.usersAnswer = usersAnswer;
-    }
 
 
 
@@ -53,8 +64,8 @@ public class Question {
         this.optionOne = optionOne;
         OptionTwo = optionTwo;
         OptionThree = optionThree;
-        OptionFour = optionFour;
-        OptionFive = optionFive;
+        this.optionFour = optionFour;
+        this.optionFive = optionFive;
         this.usersAnswer = usersAnswer;
     }
     @Ignore
@@ -84,7 +95,7 @@ public class Question {
         this.optionOne = optionOne;
         OptionTwo = optionTwo;
         OptionThree = optionThree;
-        OptionFour = optionFour;
+        this.optionFour = optionFour;
         this.usersAnswer = usersAnswer;
     }
     @Ignore
@@ -97,6 +108,7 @@ public class Question {
         OptionTwo = optionTwo;
         this.usersAnswer = usersAnswer;
     }
+
     @Ignore
     public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, String optionFour, int usersAnswer) {
         this.id = id;
@@ -106,23 +118,15 @@ public class Question {
         this.optionOne = optionOne;
         OptionTwo = optionTwo;
         OptionThree = optionThree;
-        OptionFour = optionFour;
+        this.optionFour = optionFour;
         this.usersAnswer = usersAnswer;
     }
-    @Ignore
-    public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree, String optionFour, String optionFive, int usersAnswer) {
-        this.id = id;
-        this.imageResID = imageResID;
-        this.correctAnswer = correctAnswer;
-        this.questionText = questionText;
-        this.optionOne = optionOne;
-        OptionTwo = optionTwo;
-        OptionThree = optionThree;
-        OptionFour = optionFour;
-        OptionFive = optionFive;
-        this.usersAnswer = usersAnswer;
-    }
-    @Ignore
+
+    public Question(){}
+
+
+
+
     public Question(int id, int imageResID, int correctAnswer, String questionText, String optonOne, String optionTwo, String optionThree, String optionFour, String optionFive) {
 
         this.id = id;
@@ -132,8 +136,8 @@ public class Question {
         this.optionOne = optonOne;
         OptionTwo = optionTwo;
         OptionThree = optionThree;
-        OptionFour = optionFour;
-        OptionFive = optionFive;
+        this.optionFour = optionFour;
+        this.optionFive = optionFive;
     }
     @Ignore
     public Question(int id, int correctAnswer, String questionText, String optonOne, String optionTwo, String optionThree, String optionFour, String optionFive) {
@@ -143,8 +147,8 @@ public class Question {
         this.optionOne = optonOne;
         OptionTwo = optionTwo;
         OptionThree = optionThree;
-        OptionFour = optionFour;
-        OptionFive = optionFive;
+        this.optionFour = optionFour;
+        this.optionFive = optionFive;
     }
     @Ignore
     public Question(int id, int imageResID, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree) {
@@ -164,7 +168,7 @@ public class Question {
         this.optionOne = optionOne;
         OptionTwo = optionTwo;
         OptionThree = optionThree;
-        OptionFour = optionFour;
+        this.optionFour = optionFour;
     }
     @Ignore
     public Question(int id, int correctAnswer, String questionText, String optionOne, String optionTwo, String optionThree) {
@@ -259,19 +263,19 @@ public class Question {
     }
 
     public String getOptionFour() {
-        return OptionFour;
+        return optionFour;
     }
 
     public void setOptionFour(String optionFour) {
-        OptionFour = optionFour;
+        this.optionFour = optionFour;
     }
 
     public String getOptionFive() {
-        return OptionFive;
+        return optionFive;
     }
 
     public void setOptionFive(String optionFive) {
-        OptionFive = optionFive;
+        this.optionFive = optionFive;
     }
 
     public int getUsersAnswer() {

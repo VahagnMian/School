@@ -2,7 +2,6 @@ package com.mianv.school.Activity;
 
 
 
-import static com.mianv.school.Util.Constants.getAllQuestions;
 import static com.mianv.school.Util.Util.CORRECT_QUESTION_TAG;
 import static com.mianv.school.Util.Util.NOT_ANSWERED_QUESTION_TAG;
 import static com.mianv.school.Util.Util.WRONG_QUESTION_TAG;
@@ -23,7 +22,6 @@ import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 import com.mianv.school.Util.Constants;
-import com.mianv.school.Util.QuestionBank;
 
 import java.util.ArrayList;
 
@@ -58,7 +56,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        //questionAppDatabase = Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class, "QuestionsDB").allowMainThreadQueries().build();
+        questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
         viewInitialization();
 
 
@@ -96,21 +94,21 @@ public class QuizActivity extends AppCompatActivity {
         radioButton2.setText(question.getOptionTwo());
 
 
-        if (question.getOptionThree() == ""){
+        if (question.getOptionThree() == null){
             radioButton3.setVisibility(View.GONE);
         }else {
             radioButton3.setVisibility(View.VISIBLE);
             radioButton3.setText(question.getOptionThree());
         }
 
-        if (question.getOptionFour() == ""){
+        if (question.getOptionFour() == null){
             radioButton4.setVisibility(View.GONE);
         }else {
             radioButton4.setVisibility(View.VISIBLE);
             radioButton4.setText(question.getOptionFour());
         }
 
-        if (question.getOptionFive() == ""){
+        if (question.getOptionFive() == null){
             radioButton5.setVisibility(View.GONE);
         }else {
             radioButton5.setVisibility(View.VISIBLE);
@@ -143,16 +141,16 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if ( tag== CORRECT_QUESTION_TAG){
-            questions = Constants.getCorrectQuestions();
+            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getCorrectQuestions();
             removeUserAnswer(questions);
         }else if(tag == WRONG_QUESTION_TAG){
-            questions = Constants.getWrongQuestions();
+            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getWrongQuestions();
             removeUserAnswer(questions);
         }else if (tag == NOT_ANSWERED_QUESTION_TAG){
-            questions = Constants.getNotAnsweredQuestions();
+            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getNotAnsweredQuestions();
             removeUserAnswer(questions);
         }else {
-            questions = Constants.getAllQuestions();
+            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB();
             removeUserAnswer(questions);
         }
 
@@ -287,6 +285,10 @@ public class QuizActivity extends AppCompatActivity {
 
                  questions.add(currentQuestion);
 
+                 questionAppDatabase.getQuestionDAO().updateQuestion(currentQuestion);
+
+
+
                 if(currentQuestion.getUsersAnswer() != currentQuestion.getCorrectAnswer()) {
                     currentQuestion.setUsersAnswer(checkedIdk);
                     radioGroup.setOnCheckedChangeListener(null);
@@ -336,7 +338,6 @@ public class QuizActivity extends AppCompatActivity {
 
         }
     }
-
 
     public void removeUserAnswer(ArrayList<Question> questions){
 

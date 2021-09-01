@@ -487,6 +487,69 @@ public class Constants {
 
 
 
+   public static Question[] questions = {
+            question001,
+            question002,
+            question003,
+            question004,
+            question005,
+            question006,
+            question007,
+            question008,
+            question009,
+            question010,
+            question011,
+            question012,
+            question013,
+            question014,
+            question015,
+            question016,
+            question017,
+            question018,
+            question019,
+            question020,
+            question021,
+            question022,
+            question023,
+            question024,
+            question025,
+            question026,
+            question027,
+            question028,
+            question029,
+            question030,
+            question031,
+            question032,
+            question033,
+            question034,
+            question035,
+            question036,
+            question037,
+            question038,
+            question039,
+            question040,
+            question041,
+            question042,
+            question043,
+            question044,
+            question045,
+            question046,
+            question047,
+            question048,
+            question049,
+            question050,
+            question051,
+            question052,
+            question053,
+            question054,
+            question055,
+            question056,
+            question057,
+            question058,
+            question059,
+            question060,
+            question061
+    };
 
 
     public static ArrayList<Question> getAllQuestions(){
@@ -558,66 +621,8 @@ public class Constants {
         return allQuestions;
     }
 
-    public static ArrayList<Question> getCorrectQuestions(){
-
-        getAllQuestions();
-        ArrayList<Question> correctQuestions = new ArrayList<>();
 
 
-        for (int i = 0; i < allQuestions.size(); i++){
-            Question currentQuestion = allQuestions.get(i);
-            if (currentQuestion.getCorrectAnswer() == currentQuestion.getUsersAnswer()){
-                correctQuestions.add(currentQuestion);
-            }
-
-
-        }
-
-
-        return correctQuestions;
-
-    }
-
-    public static ArrayList<Question> getWrongQuestions(){
-
-        getAllQuestions();
-        ArrayList<Question> wrongQuestions = new ArrayList<>();
-
-
-        for (int i = 0; i < allQuestions.size(); i++){
-            Question currentQuestion = allQuestions.get(i);
-            if (currentQuestion.getUsersAnswer() != 0 && currentQuestion.getCorrectAnswer() != currentQuestion.getUsersAnswer()){
-                wrongQuestions.add(currentQuestion);
-            }
-
-
-        }
-
-
-        return wrongQuestions;
-
-    }
-
-    public static ArrayList<Question> getNotAnsweredQuestions(){
-
-        getAllQuestions();
-        ArrayList<Question> notAnsweredQuestions = new ArrayList<>();
-
-
-
-        for (int i = 0; i < allQuestions.size(); i++){
-            Question currentQuestion = allQuestions.get(i);
-            if (currentQuestion.getUsersAnswer() == 0){
-                notAnsweredQuestions.add(currentQuestion);
-            }
-
-
-        }
-
-
-        return notAnsweredQuestions;
-
-    }
 
 
 

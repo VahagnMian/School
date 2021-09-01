@@ -6,14 +6,15 @@ import static com.mianv.school.Util.Util.WRONG_QUESTION_TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.R;
-import com.mianv.school.Util.Constants;
 import com.mianv.school.Util.QuestionBank;
 
 public class ProgressActivity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class ProgressActivity extends AppCompatActivity {
     CardView wrongCardView;
     CardView notAnsweredCardView;
     QuestionBank questionBank = new QuestionBank();
+    public QuestionAppDatabase questionAppDatabase;
 
 
 
@@ -33,6 +35,7 @@ public class ProgressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
 
+        questionAppDatabase = Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
 
 
 
@@ -41,16 +44,14 @@ public class ProgressActivity extends AppCompatActivity {
 
 
 
-        questionsRefresh();
-
         addListenerToCardView(correctCardView);
         addListenerToCardView(wrongCardView);
         addListenerToCardView(notAnsweredCardView);
 
 
-        correctAnswersProgress.setText(Constants.getCorrectQuestions().size()+ "");
-        wrongAnswersProgress.setText(Constants.getWrongQuestions().size()+ "");
-        notAnsweredAnswerProgress.setText(Constants.getNotAnsweredQuestions().size()+ "");
+        correctAnswersProgress.setText(questionAppDatabase.getQuestionDAO().getCorrectQuestions().size()+ "");
+        wrongAnswersProgress.setText(questionAppDatabase.getQuestionDAO().getWrongQuestions().size()+ "");
+        notAnsweredAnswerProgress.setText(questionAppDatabase.getQuestionDAO().getNotAnsweredQuestions().size()+ "");
 
 
 
@@ -76,12 +77,7 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
-    public void questionsRefresh(){
-        questionBank.bindAllQuestionsToArray();
-        questionBank.bindCorrectQuestionsToArray();
-        questionBank.bindWrongQuestionsToArray();
-        questionBank.bindNotAnsweredQuestionsToArray();
-    }
+
 
     public void addListenerToCardView(CardView cardView){
         cardView.setOnClickListener(new View.OnClickListener() {

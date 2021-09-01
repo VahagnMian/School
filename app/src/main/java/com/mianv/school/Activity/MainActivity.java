@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     ArrayList<Card> cards;
      ScrollView scrollView;
-     //QuestionAppDatabase questionAppDatabase;
-     ArrayList<Question> questions;
+     public static QuestionAppDatabase questionAppDatabase;
 
 
 
@@ -44,21 +43,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        questions = Constants.getAllQuestions();
+        questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
 
         viewInitialization();
         createRecyclerView();
         addTestItemsToRecyclerView();
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
+        if (questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB().size() == 0) {
+            for (int i = 0; i < Constants.questions.length - 1; i++) {
+                questionAppDatabase.getQuestionDAO().addQuestion(Constants.questions[i]);
+            }
+
+        }
+
+
 
 
 
         adapter.setOnClickListener(new DashboardAdapter.OnDashboardItemClickListener() {
+
             @Override
             public void onItemClick(int position) {
                     if (position == 0){
-                        if (Constants.getNotAnsweredQuestions().size() == Constants.getAllQuestions().size()){
+                        if (questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB().size() == questionAppDatabase.getQuestionDAO().getNotAnsweredQuestions().size()){
                             goToQuiz();
                         }else {
                             goToProgress();
