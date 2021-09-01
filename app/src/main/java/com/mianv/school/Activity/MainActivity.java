@@ -3,28 +3,21 @@ package com.mianv.school.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.ScrollView;
 
 
 import com.mianv.school.Adapter.DashboardAdapter;
 import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Model.Card;
-import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 import com.mianv.school.Util.Constants;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
@@ -51,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
         if (questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB().size() == 0) {
-            for (int i = 0; i < Constants.questions.length - 1; i++) {
-                questionAppDatabase.getQuestionDAO().addQuestion(Constants.questions[i]);
+            for (int i = 0; i < Constants.section1Questions.length - 1; i++) {
+                questionAppDatabase.getQuestionDAO().addQuestion(Constants.section1Questions[i]);
             }
 
         }
