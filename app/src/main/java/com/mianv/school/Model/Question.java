@@ -18,7 +18,7 @@ public class Question {
     private int imageResID=0;
 
     @ColumnInfo(name = "correct_answer")
-    private int correctAnswer;
+    private int correctAnswer = 0;
 
     @ColumnInfo(name = "question_text")
     private String questionText;

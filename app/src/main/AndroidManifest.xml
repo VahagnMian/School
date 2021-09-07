@@ -11,7 +11,8 @@
         android:theme="@style/Theme.School">
         <activity
             android:name=".Activity.ProgressActivity"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".Activity.QuizActivity"
             android:exported="true" />

@@ -548,21 +548,21 @@ public class Constants {
     };
 
 
-    private static final Question section3Question001 = new Question(1, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question062 = new Question(62, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլների դողերի պահպանաշերտի\n" +
                     "մնացորդային բարձրությունը կազմում է 1.8 մմ",
             "Խախտված է հիդրավլիկ արգելակային հաղորդակի\n" +
                     "հերմետիկությունը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question002 = new Question(2, 2,
+    private static final Question section3Question063 = new Question(63, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բեռնատար ավտոմոբիլի դողերի պահպանաշերտի մնացորդային\n" +
                     "բարձրությունը կազմում է 1.6 մմ",
             "Չի գործում պնևմատիկ արգելակային հաղորդակի ճնշաչափը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question003 = new Question(3, 3,
+    private static final Question section3Question064 = new Question(64, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առկա են ղեկային կառավարման մանրամասերի (դետալների) ու\n" +
                     "հանգույցների` կառուցվածքով չնախատեսված տեղաշարժեր կամ\n" +
@@ -570,7 +570,7 @@ public class Constants {
             "Բեռնատար ավտոմոբիլում բացակայում է կրակմարիչը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question004 = new Question(4, 2,
+    private static final Question section3Question065 = new Question(65, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Սահմանված ռեժիմով չեն աշխատում արտաքին լուսային\n" +
                     "սարքերը",
@@ -578,7 +578,7 @@ public class Constants {
                     "կազմում է 0.6 մմ",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question005 = new Question(5, 1,
+    private static final Question section3Question066 = new Question(66, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Հետին հակամառախուղային լապտերիկները միացված են\n" +
                     "տրանսպորտային միջոցի արգելակումն ազդարարող լուսային\n" +
@@ -586,7 +586,7 @@ public class Constants {
             "Չի աշխատում շարժիչը հովացնող հեղուկի ջերմաստիճանի ցուցիչը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question006 = new Question(6, 2,
+    private static final Question section3Question067 = new Question(67, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Շարժիչն աշխատում է ընդհատումներով",
             "Դողերն ունեն անվադողի հենքը (կորդը) մերկացնող տեղային\n" +
@@ -595,7 +595,7 @@ public class Constants {
                     "լուսավորության սարքերը",
             "Թվարկած բոլոր դեպքերում");
 
-    private static final Question section3Question007 = new Question(7, 2,
+    private static final Question section3Question068 = new Question(68, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առանց կողային կցորդի մոտոցիկլում բացակայում է «Վթարային\n" +
                     "կանգառ» նշանը",
@@ -603,7 +603,7 @@ public class Constants {
                     "համապատասխանում տրանսպորտային միջոցի տվյալ մոդելին",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question008 = new Question(8, 3,
+    private static final Question section3Question069 = new Question(69, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բացակայում է դողի անվահեցի ամրացման հեղյուսներից թեկուզ\n" +
                     "մեկը",
@@ -611,14 +611,14 @@ public class Constants {
                     "նախշանկարներով դողեր",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question009 = new Question(9, 3,
+    private static final Question section3Question070 = new Question(70, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բացակայում են կառուցվածքով նախատեսված նստատեղերի\n" +
                     "գլխակալները",
             "Նույն սռնու վրա տեղադրված են նոր և վերականգնված դողեր",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question010 = new Question(10, 3,
+    private static final Question section3Question071 = new Question(71, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Արտածվող գազերում վնասակար նյութերի պարունակությունը\n" +
                     "գերազանցում է ՀՀ օրենսդրությամբ սահմանված նորմերը",
@@ -627,14 +627,14 @@ public class Constants {
             "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question011 = new Question(11, 3,
+    private static final Question section3Question072 = new Question(72, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             " Խախտված է շարժիչի հենատուփի օդափոխության համակարգի\n" +
                     "հերմետիկությունը",
             "Խախտված է շարժիչի սնման համակարգի հերմետիկությունը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question012 = new Question(12, 3,
+    private static final Question section3Question073 = new Question(73, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Խախտված է շարժիչի հենատուփի օդափոխության համակարգի\n" +
                     "հերմետիկությունը",
@@ -642,14 +642,14 @@ public class Constants {
                     "ցրտադիմացկուն դողեր",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question013 = new Question(13, 3,
+    private static final Question section3Question074 = new Question(74, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չեն աշխատում կառուցվածքով նախատեսված ապակեողողիչները",
             "Շարժիչի արտաքին աղմուկի թույլատրելի մակարդակը\n" +
                     "գերազանցում է ստանդարտով սահմանված նորմերը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question014 = new Question(14, 3,
+    private static final Question section3Question075 = new Question(75, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             " Շարժիչն աշխատում է ընդհատումներով",
             "Հետին հակամառախուղային լապտերիկները միացված չեն\n" +
@@ -658,14 +658,14 @@ public class Constants {
                     "նախատեսված ապակեողողիչները",
             "Թվարկած բոլոր դեպքերում");
 
-    private static final Question section3Question015 = new Question(15, 3,
+    private static final Question section3Question076 = new Question(76, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Տեղադրված են երթևեկության մասնակիցներին վնասվածքներ\n" +
                     "հասցնելու վտանգ պարունակող իրեր կամ առարկաներ",
             "Չի աշխատում ձայնային ազդանշանի սարքը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question016 = new Question(16, 1,
+    private static final Question section3Question077 = new Question(77, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Մոտոցիկլի և կողային կցորդի շրջանակների միացումներում առկա է\n" +
                     "խաղացք",
@@ -673,21 +673,21 @@ public class Constants {
                     "հակամառախուղային լապտերներ",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question017 = new Question(17, 1,
+    private static final Question section3Question078 = new Question(78, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բեռնատար ավտոմոբիլում բացակայում է բժշկական դեղատուփը",
             "Առջևի մասում տեղադրված են սպիտակ գույնի լուսանդրադարձնող\n" +
                     "հարմարանքներ",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question018 = new Question(18, 3,
+    private static final Question section3Question079 = new Question(79, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Կողային կցորդով մոտոցիկլում բացակայում է բժշկական\n" +
                     "դեղատուփը",
             "Անսարք է քարշակի հենակցման հարմարանքը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question019 = new Question(19, 3,
+    private static final Question section3Question080 = new Question(80, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չեն աշխատում տրանսպորտային միջոցի կառուցվածքով\n" +
                     "նախատեսված անվտանգության ամրագոտիները",
@@ -695,7 +695,7 @@ public class Constants {
                     "սահմանափակող իրեր կամ առարկաներ",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question020 = new Question(20, 1,
+    private static final Question section3Question081 = new Question(81, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առանց տրանսպորտային միջոցի հաշվառումն իրականացնող\n" +
                     "մարմնի թույլտվության՝ տրանսպորտային միջոցի կառուցվածքում\n" +
@@ -704,7 +704,7 @@ public class Constants {
                     "ցուցիչներ",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question021 = new Question(21, 1,
+    private static final Question section3Question082 = new Question(82, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Մեխանիկական տրանսպորտային միջոցը, որով իրականացվում է\n" +
                     "գործնական վարման ուսուցում, չունի համապատասխան ճանաչման\n" +
@@ -712,7 +712,7 @@ public class Constants {
             "Չի աշխատում վառելիքի մակարդակի ցուցիչը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question022 = new Question(22, 1,
+    private static final Question section3Question083 = new Question(83, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բացակայում են կառուցվածքով նախատեսված անվտանգության\n" +
                     "աղեղները",
@@ -721,7 +721,7 @@ public class Constants {
             "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question023 = new Question(23, 2,
+    private static final Question section3Question084 = new Question(84, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առջևի մասում տեղադրված են դեղին գույնի լույսերով շրջադարձի\n" +
                     "ցուցիչներ",
@@ -729,26 +729,26 @@ public class Constants {
                     "մեկը", "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question024 = new Question(24, 2,
+    private static final Question section3Question085 = new Question(85, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առջևի մասում տեղադրված են նարնջագույն լույսերով շրջադարձի\n" +
                     "ցուցիչներ",
             "Անսարք է քարշակի քարշակցման հարմարանքը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question025 = new Question(25, 2,
+    private static final Question section3Question086 = new Question(86, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առջևի մասում տեղադրված են սպիտակ գույնի լուսանդրադարձնող\n" +
                     "հարմարանքներ",
             "Անսարք է քարշակի քարշակցման հարմարանքը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question026 = new Question(26, 1,
+    private static final Question section3Question087 = new Question(87, 1,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բացակայում են կառուցվածքով նախատեսված անվտանգության\n" +
                     "ամրագոտիները",
             "Հետևի մասում տեղադրված են սպիտակ գույնի լույսերով հետընթացի\n" +
                     "լապտերիկներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question027 = new Question(27, 4,
+    private static final Question section3Question088 = new Question(88, 4,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Բացակայում է կառուցվածքով նախատեսված` թամբի վրայի ուղևորի\n" +
                     "համար լայնակի բռնատեղը",
@@ -756,28 +756,28 @@ public class Constants {
             "Բացակայում է բժշկական դեղատուփը",
             "Թվարկած բոլոր դեպքերում");
 
-    private static final Question section3Question028 = new Question(28, 3,
+    private static final Question section3Question089 = new Question(89, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չի աշխատում կառուցվածքով նախատեսված` վարորդի նստատեղի\n" +
                     "դիրքը կարգավորող մեխանիզմը",
             "Չեն աշխատում ավտոբուսի սրահի ներքին լուսավորության սարքերը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question029 = new Question(29, 2,
+    private static final Question section3Question090 = new Question(90, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չեն աշխատում թեթև մարդատար ավտոմոբիլի սրահի ներքին\n" +
                     "լուսավորության սարքերը",
             "Բացակայում են կառուցվածքով նախատեսված նստատեղերի\n" +
                     "գլխակալները", "Երկու դեպքում էլ");
 
-    private static final Question section3Question030 = new Question(30, 2,
+    private static final Question section3Question091 = new Question(91, 2,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Հետևի մասում տեղադրված են կարմիր գույնի լուսանդրադարձնող\n" +
                     "հարմարանքներ",
             "Չի աշխատում կառուցվածքով նախատեսված արագաչափը",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question031 = new Question(31, 3,
+    private static final Question section3Question092 = new Question(92, 3,
             "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլի ղեկային կառավարման համակարգի\n" +
                     "գումարային խաղացքը գերազանցում է 10 աստիճանը",
@@ -785,94 +785,94 @@ public class Constants {
                     "գոգնոցները և ցայտապաշտպանիչները",
             "Երկու դեպքում էլ");
 
-    private static final Question section3Question032 = new Question(32, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question093 = new Question(93, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլների դողերի պահպանաշերտի\n" +
                     "մնացորդային բարձրությունը կազմում է 1.8 մմ",
             "Խախտված է հիդրավլիկ արգելակային հաղորդակի\n" +
                     "հերմետիկությունը", "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question033 = new Question(33, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question094 = new Question(94, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլում բացակայում է բժշկական\n" +
                     "դեղատուփը",
             "Հետևի մասում տեղադրված են կարմիր գույնի լույսերով հետընթացի\n" +
                     "լապտերիկներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question034 = new Question(34, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question095 = new Question(95, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Ավտոբուսում բացակայում է «Վթարային կանգառ» նշանը",
             "Հետևի մասում տեղադրված են սպիտակ գույնի լույսերով\n" +
                     "հաշվառման համարանիշի լուսավորման լապտերիկներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question035 = new Question(35, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question096 = new Question(96, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլի կցորդի դողերի պաշտպանաշերտի\n" +
                     "նախշանկարի մնացորդային բարձրությունը պակաս է 1,6 մմ-ից",
             "Հետևի մասում տեղադրված են նարնջագույն լույսերով շրջադարձի\n" +
                     "ցուցիչներ", "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question036 = new Question(36, 3 , "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question097 = new Question(97, 3 , "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Խախտված է հիդրավլիկ արգելակային հաղորդակի\n" +
                     "հերմետիկությունը",
             "Հետևի մասում տեղադրված են սպիտակ գույնի լույսերով\n" +
                     "շրջադարձի ցուցիչներ", "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question037 = new Question(37, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question098 = new Question(98, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Նույն սռնու վրա տեղադրված են տարբեր կառուցվածքների դողեր",
             "Խախտված է շարժիչի սնման համակարգի հերմետիկությունը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question038 = new Question(38, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question099 = new Question(99, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չի աշխատում ձայնային ազդանշանի սարքը",
             "Հովացման համակարգը չի ապահովում շարժիչի աշխատանքի կայուն\n" +
                     "ջերմային ռեժիմը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question039 = new Question(39, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question100 = new Question(100, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Ղեկային կառավարման պարուրակային միացումները ձգված կամ\n" +
                     "սահմանված ձևով սևեռված չեն",
             "Ավտոբուսում բացակայում են կրակմարիչները", "Երկու դեպքում էլ");
 
-    private static final Question section3Question040 = new Question(40, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question101 = new Question(101, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Առկա են ղեկային կառավարման մանրամասերի (դետալների) ու\n" +
                     "հանգույցների կառուցվածքով չնախատեսված տեղաշարժեր",
             "Առջևի մասում տեղադրված են սպիտակ գույնի լույսերով\n" +
                     "շրջադարձի ցուցիչներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question041 = new Question(41, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question102 = new Question(102, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Ավտոբուսի դողերի պահպանաշերտի նախշանկարի մնացորդային\n" +
                     "բարձրությունը կազմում է 1.8 մմ",
             "Խախտված է հիդրավլիկ արգելակային հաղորդակի\n" +
                     "հերմետիկությունը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question042 = new Question(42, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question103 = new Question(103, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չի գործում պնևմատիկ արգելակային հաղորդակի ճնշաչափը",
             "Ավտոբուսի դողերի պահպանաշերտի մնացորդային բարձրությունը\n" +
                     "կազմում է 1.6 մմ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question043 = new Question(43, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question104 = new Question(104, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Սահմանված ռեժիմով չեն աշխատում արտաքին լուսային\n" +
                     "սարքերը",
             "Ավտոբուսի դողերի պահպանաշերտի նախշանկարի մնացորդային\n" +
                     "բարձրությունը կազմում է 0.8 մմ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question044 = new Question(44, 1,
+    private static final Question section3Question105 = new Question(105, 1,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Շարժիչն աշխատում է ընդհատումներով",
             "Դողերն ունեն անվադողի հենքը (կորդը) մերկացնող տեղային\n" +
                     "վնասվածքներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question045 = new Question(45, 2,
+    private static final Question section3Question106 = new Question(106, 2,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Բացակայում է բժշկական դեղատուփը",
             "Դողերի պահպանաշերտի նախշանկարի մնացորդային\n" +
                     "բարձրությունը կազմում է 2,2 մմ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question046 = new Question(46, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question107 = new Question(107, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Չեն աշխատում թեթև մարդատար ավտոմոբիլի սրահի ներքին\n" +
                     "լուսավորության սարքերը",
             "Չեն աշխատում ավտոբուսի սրահի ներքին լուսավորության սարքերը", "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question047 = new Question(47, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question108 = new Question(108, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլի բազայի վրա պատրաստված\n" +
                     "ավտոբուսի մոտ ղեկային կառավարման համակարգի գումարային\n" +
                     "խաղացքը գերազանցում է 10 աստիճանը",
@@ -880,137 +880,262 @@ public class Constants {
                     "գոգնոցները և ցայտապաշտպանիչները", "Երկու դեպքում էլ");
 
 
-    private static final Question section3Question048 = new Question(48, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question109 = new Question(109, 1, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլի բազայի վրա պատրաստված\n" +
                     "ավտոբուսի ղեկային կառավարման համակարգի գումարային\n" +
                     "խաղացքը 15 աստիճան է",
             "Ավտոբուսի ղեկային կառավարման համակարգի գումարային\n" +
                     "խաղացքը 15 աստիճան է", "Երկու դեպքում էլ");
 
-    private static final Question section3Question049 = new Question(49, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question110 = new Question(110, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Հետևի մասում տեղադրված են սպիտակ գույնի լուսանդրադարձնող\n" +
                     "հարմարանքներ",
             "Հետևի մասում տեղադրված են կարմիր գույնի լուսանդրադարձնող\n" +
                     "հարմարանքներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question050 = new Question(50, 3,
+    private static final Question section3Question111 = new Question(111, 3,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Առկա են երկուսից ոչ պակաս հակագլորման հենակներ",
             "Հետևի մասում տեղադրված են սպիտակ գույնի լուսանդրադարձնող\n" +
                     "հարմարանքներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question051 = new Question(51, 1,
+    private static final Question section3Question112 = new Question(112, 1,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Չեն աշխատում դռների վթարային բացիչները",
             "Թափքի հետնապատին չեն կրկնվում հաշվառման համարանիշերի\n" +
                     "թվերը և տառերը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question052 = new Question(52, 1,
+    private static final Question section3Question113 = new Question(113, 1,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Չի աշխատում կանգառ կատարելու պահանջի ազդանշանը",
             "Թափքի հետնապատին կրկնվում են հաշվառման համարանիշերի\n" +
                     "թվերը և տառերը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question053 = new Question(53, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question114 = new Question(114, 2, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Թեթև մարդատար ավտոմոբիլների դողերի պահպանաշերտի\n" +
                     "մնացորդային բարձրությունը կազմում է 1.8 մմ",
             "Խախտված է հիդրավլիկ արգելակային հաղորդակի\n" +
                     "հերմետիկությունը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question054 = new Question(54, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
+    private static final Question section3Question115 = new Question(115, 3, "Տրանսպորտային միջոցների շահագործումն արգելվում է, եթե`",
             "Դողերի պահպանաշերտի նախշանկարի մնացորդային բարձրությունը\n" +
                     "կազմում է 2.5 մմ",
             "Չեն աշխատում սրահի ներքին լուսավորության սարքերը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question055 = new Question(55, 3,
+    private static final Question section3Question116 = new Question(116, 3,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Չեն աշխատում վթարային ելքերը և դրանք գործողության մեջ դնող\n" +
                     "հարմարանքները",
             "Չի աշխատում կանգառ կատարելու պահանջի ազդանշանը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question056 = new Question(56, 3,
+    private static final Question section3Question117 = new Question(117, 3,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Չի աշխատում դռների կառավարման հաղորդակը",
             "Բացակայում է բժշկական դեղատուփը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question057 = new Question(57, 3,
+    private static final Question section3Question118 = new Question(118, 3,
             "5 տոննայից ավելի թույլատրելի առավելագույն զանգված ունեցող\n" +
                     "ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Բացակայում են հակագլորման հենակները",
             "Հետևի մասում տեղադրված են կարմիր գույնի հետընթացի\n" +
                     "լապտերիկներ", "Երկու դեպքում էլ");
 
-    private static final Question section3Question058 = new Question(58, 2,
+    private static final Question section3Question119 = new Question(119, 2,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Առկա է մեկ հատ կրակմարիչ",
             "Բացակայում է «Վթարային կանգառ» նշանը", "Երկու դեպքում էլ");
 
-    private static final Question section3Question059 = new Question(59, 2,
+    private static final Question section3Question120 = new Question(120, 2,
             "Ավտոբուսների շահագործումն արգելվում է, եթե՝",
             "Առկա է հակագլորման մեկ հենակ",
             "Առկա է մեկ կրակմարիչ", "Երկու դեպքում էլ");
 
 
     public Question[] section3Questions = {
-            section3Question001,
-            section3Question002,
-            section3Question003,
-            section3Question004,
-            section3Question005,
-            section3Question006,
-            section3Question007,
-            section3Question008,
-            section3Question009,
-            section3Question010,
-            section3Question011,
-            section3Question012,
-            section3Question013,
-            section3Question014,
-            section3Question015,
-            section3Question016,
-            section3Question017,
-            section3Question018,
-            section3Question019,
-            section3Question020,
-            section3Question021,
-            section3Question022,
-            section3Question023,
-            section3Question024,
-            section3Question025,
-            section3Question026,
-            section3Question027,
-            section3Question028,
-            section3Question029,
-            section3Question030,
-            section3Question031,
-            section3Question032,
-            section3Question033,
-            section3Question034,
-            section3Question035,
-            section3Question036,
-            section3Question037,
-            section3Question038,
-            section3Question039,
-            section3Question040,
-            section3Question041,
-            section3Question042,
-            section3Question043,
-            section3Question044,
-            section3Question045,
-            section3Question046,
-            section3Question047,
-            section3Question048,
-            section3Question049,
-            section3Question050,
-            section3Question051,
-            section3Question052,
-            section3Question053,
-            section3Question054,
-            section3Question055,
-            section3Question056,
-            section3Question057,
-            section3Question058,
-            section3Question059
+            section3Question062,
+            section3Question063,
+            section3Question064,
+            section3Question065,
+            section3Question066,
+            section3Question067,
+            section3Question068,
+            section3Question069,
+            section3Question070,
+            section3Question071,
+            section3Question072,
+            section3Question073,
+            section3Question074,
+            section3Question075,
+            section3Question076,
+            section3Question077,
+            section3Question078,
+            section3Question079,
+            section3Question080,
+            section3Question081,
+            section3Question082,
+            section3Question083,
+            section3Question084,
+            section3Question085,
+            section3Question086,
+            section3Question087,
+            section3Question088,
+            section3Question089,
+            section3Question090,
+            section3Question091,
+            section3Question092,
+            section3Question093,
+            section3Question094,
+            section3Question095,
+            section3Question096,
+            section3Question097,
+            section3Question098,
+            section3Question099,
+            section3Question100,
+            section3Question101,
+            section3Question102,
+            section3Question103,
+            section3Question104,
+            section3Question105,
+            section3Question106,
+            section3Question107,
+            section3Question108,
+            section3Question109,
+            section3Question110,
+            section3Question111,
+            section3Question112,
+            section3Question113,
+            section3Question114,
+            section3Question115,
+            section3Question116,
+            section3Question117,
+            section3Question118,
+            section3Question119,
+            section3Question120
+
+
+    };
+
+    public static Question[] allQuestions = {
+            question001,
+            question002,
+            question003,
+            question004,
+            question005,
+            question006,
+            question007,
+            question008,
+            question009,
+            question010,
+            question011,
+            question012,
+            question013,
+            question014,
+            question015,
+            question016,
+            question017,
+            question018,
+            question019,
+            question020,
+            question021,
+            question022,
+            question023,
+            question024,
+            question025,
+            question026,
+            question027,
+            question028,
+            question029,
+            question030,
+            question031,
+            question032,
+            question033,
+            question034,
+            question035,
+            question036,
+            question037,
+            question038,
+            question039,
+            question040,
+            question041,
+            question042,
+            question043,
+            question044,
+            question045,
+            question046,
+            question047,
+            question048,
+            question049,
+            question050,
+            question051,
+            question052,
+            question053,
+            question054,
+            question055,
+            question056,
+            question057,
+            question058,
+            question059,
+            question060,
+            question061,
+            section3Question062,
+            section3Question063,
+            section3Question064,
+            section3Question065,
+            section3Question066,
+            section3Question067,
+            section3Question068,
+            section3Question069,
+            section3Question070,
+            section3Question071,
+            section3Question072,
+            section3Question073,
+            section3Question074,
+            section3Question075,
+            section3Question076,
+            section3Question077,
+            section3Question078,
+            section3Question079,
+            section3Question080,
+            section3Question081,
+            section3Question082,
+            section3Question083,
+            section3Question084,
+            section3Question085,
+            section3Question086,
+            section3Question087,
+            section3Question088,
+            section3Question089,
+            section3Question090,
+            section3Question091,
+            section3Question092,
+            section3Question093,
+            section3Question094,
+            section3Question095,
+            section3Question096,
+            section3Question097,
+            section3Question098,
+            section3Question099,
+            section3Question100,
+            section3Question101,
+            section3Question102,
+            section3Question103,
+            section3Question104,
+            section3Question105,
+            section3Question106,
+            section3Question107,
+            section3Question108,
+            section3Question109,
+            section3Question110,
+            section3Question111,
+            section3Question112,
+            section3Question113,
+            section3Question114,
+            section3Question115,
+            section3Question116,
+            section3Question117,
+            section3Question118,
+            section3Question119,
+            section3Question120
 
 
     };

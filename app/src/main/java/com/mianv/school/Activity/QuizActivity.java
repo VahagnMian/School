@@ -2,9 +2,7 @@ package com.mianv.school.Activity;
 
 
 
-import static com.mianv.school.Util.Util.CORRECT_QUESTION_TAG;
-import static com.mianv.school.Util.Util.NOT_ANSWERED_QUESTION_TAG;
-import static com.mianv.school.Util.Util.WRONG_QUESTION_TAG;
+import static com.mianv.school.Util.Util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -21,33 +19,28 @@ import android.widget.TextView;
 import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Model.Question;
 import com.mianv.school.R;
-import com.mianv.school.Util.Constants;
 
 import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
 
-    RadioGroup radioGroup;
-    RadioButton radioButton1;
-    RadioButton radioButton2;
-    RadioButton radioButton3;
-    RadioButton radioButton4;
-    RadioButton radioButton5;
-
-
-    Button nextQuestion;
-    Button previousQuestion;
-
-    TextView questionText;
-    TextView questionIndexText;
-    TextView questionSizeText;
-    ImageView questionImage;
-    QuestionAppDatabase questionAppDatabase;
-
-    int tag;
-    ArrayList<Question> questions;
-    int currentIndex = 0;
-    int checkedIdk;
+    private RadioGroup radioGroup;
+    private RadioButton radioButton1;
+    private RadioButton radioButton2;
+    private RadioButton radioButton3;
+    private RadioButton radioButton4;
+    private RadioButton radioButton5;
+    private Button nextQuestion;
+    private Button previousQuestion;
+    private TextView questionText;
+    private TextView questionIndexText;
+    private TextView questionSizeText;
+    private ImageView questionImage;
+    private QuestionAppDatabase questionAppDatabase;
+    private int tag;
+    private ArrayList<Question> questions;
+    private int currentIndex = 0;
+    private int checkedIdk;
 
 
 
@@ -56,6 +49,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
         questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
         viewInitialization();
 
@@ -136,23 +130,57 @@ public class QuizActivity extends AppCompatActivity {
         previousQuestion = findViewById(R.id.previousQuestionButton);
 
         Intent intent = getIntent();
-        tag = intent.getIntExtra("ArrayList" , -1);
+        tag = intent.getIntExtra("whichSection" , -1);
 
 
 
-        if ( tag== CORRECT_QUESTION_TAG){
-            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getCorrectQuestions();
-            removeUserAnswer(questions);
-        }else if(tag == WRONG_QUESTION_TAG){
-            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getWrongQuestions();
-            removeUserAnswer(questions);
-        }else if (tag == NOT_ANSWERED_QUESTION_TAG){
-            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getNotAnsweredQuestions();
-            removeUserAnswer(questions);
-        }else {
-            questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB();
-            removeUserAnswer(questions);
+
+
+        switch (tag){
+
+            case CORRECT_QUESTIONS_FROM_1:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get1SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_1:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get1SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_1:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get1SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_1:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get1SectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
+
+
+            case CORRECT_QUESTIONS_FROM_3:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get3SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_3:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get3SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_3:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get3SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_3:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get3SectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
         }
+
+
+
+
 
 
     }

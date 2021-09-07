@@ -1,5 +1,8 @@
 package com.mianv.school.Activity;
 
+import static com.mianv.school.Util.Util.*;
+
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -13,6 +16,7 @@ import android.widget.ScrollView;
 
 import com.mianv.school.Adapter.DashboardAdapter;
 import com.mianv.school.Database.QuestionAppDatabase;
+import com.mianv.school.Database.QuestionDao;
 import com.mianv.school.Model.Card;
 import com.mianv.school.R;
 import com.mianv.school.Util.Constants;
@@ -22,66 +26,120 @@ import java.util.ArrayList;
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 
 public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    RecyclerView recyclerView;
-    DashboardAdapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    ArrayList<Card> cards;
-     ScrollView scrollView;
-     public static QuestionAppDatabase questionAppDatabase;
 
+
+    private Toolbar toolbar;
+    private  RecyclerView recyclerView;
+    private  DashboardAdapter adapter;
+    private  RecyclerView.LayoutManager layoutManager;
+    private  ArrayList<Card> cards;
+    private   ScrollView scrollView;
+    private   QuestionAppDatabase questionAppDatabase;
+    private   QuestionDao questionDao;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(null);
         setContentView(R.layout.activity_main);
-        questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
 
+
+
+
+        daoInitialization();
         viewInitialization();
         createRecyclerView();
         addTestItemsToRecyclerView();
         OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+        loadQuestionsToRoom();
+        addListenerToCardView();
 
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+    public void goToProgress(int whichCard) {
+
+        Intent intent = new Intent(getApplicationContext(), ProgressActivity.class);
+
+
+        switch(whichCard){
+            case 0:
+                intent.putExtra(codeExtraProgress, FIRST_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 1:
+                intent.putExtra(codeExtraProgress, SECOND_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 2:
+                intent.putExtra(codeExtraProgress, THIRD_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 3:
+                intent.putExtra(codeExtraProgress, FOURTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 4:
+                intent.putExtra(codeExtraProgress, FIFTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 5:
+                intent.putExtra(codeExtraProgress, SIXTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 6:
+                intent.putExtra(codeExtraProgress, SEVENTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 7:
+                intent.putExtra(codeExtraProgress, EIGHTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 8:
+                intent.putExtra(codeExtraProgress, NINTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+            case 9:
+                intent.putExtra(codeExtraProgress, TENTH_SECTION_CARD);
+                startActivity(intent);
+                break;
+
+        }
+
+
+    }
+
+    public void goToQuiz(int toWhich){
+
+         Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+         intent.putExtra("whichSection", toWhich);
+         startActivity(intent);
+
+    }
+
+    public void loadQuestionsToRoom(){
         if (questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB().size() == 0) {
-            for (int i = 0; i < Constants.section1Questions.length - 1; i++) {
-                questionAppDatabase.getQuestionDAO().addQuestion(Constants.section1Questions[i]);
+            for (int i = 0; i < Constants.allQuestions.length - 1; i++) {
+                questionAppDatabase.getQuestionDAO().addQuestion(Constants.allQuestions[i]);
             }
 
         }
 
 
-
-
-
-        adapter.setOnClickListener(new DashboardAdapter.OnDashboardItemClickListener() {
-
-            @Override
-            public void onItemClick(int position) {
-                    if (position == 0){
-                        if (questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB().size() == questionAppDatabase.getQuestionDAO().getNotAnsweredQuestions().size()){
-                            goToQuiz();
-                        }else {
-                            goToProgress();
-                        }
-                    }
-            }
-        });
-
-
-
     }
-
-    public void goToProgress(){
-        Intent intent = new Intent(getApplicationContext(), ProgressActivity.class);
-        startActivity(intent);
-    }
-
-    public void goToQuiz(){
-         Intent intent = new Intent(getApplicationContext(),  QuizActivity.class);
-         startActivity(intent);
-    }
-
 
     public void createRecyclerView(){
         cards = new ArrayList<>();
@@ -126,6 +184,158 @@ public class MainActivity extends AppCompatActivity {
     public void viewInitialization(){
         toolbar = findViewById(R.id.toolbar);
         scrollView = findViewById(R.id.scroll_view);
+    }
+
+    public void addListenerToCardView(){
+        adapter.setOnClickListener(new DashboardAdapter.OnDashboardItemClickListener() {
+
+            @Override
+            public void onItemClick(int position) {
+
+                switch (position){
+                    case 0:
+                        itemClickAction(0);
+                        break;
+                    case 1:
+                        itemClickAction(1);
+                        break;
+                    case 2:
+                        itemClickAction(2);
+                        break;
+                    case 3:
+                        itemClickAction(3);
+                        break;
+                    case 4:
+                        itemClickAction(4);
+                        break;
+                    case 5:
+                        itemClickAction(5);
+                        break;
+                    case 6:
+                        itemClickAction(6);
+                        break;
+                    case 7:
+                        itemClickAction(7);
+                        break;
+                    case 8:
+                        itemClickAction(8);
+                        break;
+                    case 9:
+                        itemClickAction(9);
+                        break;
+
+
+
+                }
+            }
+        });
+    }
+
+    public void itemClickAction(int position){
+        Integer getNSectionNotAnsweredQuestions = 0;
+        Integer getNSectionQuestions = 0;
+
+        switch (position){
+            case 0:
+                getNSectionNotAnsweredQuestions = questionDao.get1SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get1SectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 0);
+                break;
+            case 1:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+            case 2:
+                getNSectionNotAnsweredQuestions = questionDao.get3SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get3SectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 2);
+                break;
+            case 3:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+            case 4:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+            case 5:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+            case 6:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+            case 7:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+            case 8:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+               //break;
+            case 9:
+                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
+                //break;
+
+
+        }
+
+    }
+
+    public void checkQuestionsQuantityAndCompare(Integer notAnsweredQuestions, Integer sectionQuestions, int position){
+        if (notAnsweredQuestions.equals(sectionQuestions)){
+            switch (position){
+                case 0:
+                    goToQuiz(ALL_QUESTION_FROM_1);
+                    break;
+                case 1:
+                    goToQuiz(ALL_QUESTION_FROM_2);
+                    break;
+                case 2:
+                    goToQuiz(ALL_QUESTION_FROM_3);
+                    break;
+                case 3:
+                    goToQuiz(ALL_QUESTION_FROM_4);
+                    break;
+                case 4:
+                    goToQuiz(ALL_QUESTION_FROM_5);
+                    break;
+                case 5:
+                    goToQuiz(ALL_QUESTION_FROM_6);
+                    break;
+                case 6:
+                    goToQuiz(ALL_QUESTION_FROM_7);
+                    break;
+                case 7:
+                    goToQuiz(ALL_QUESTION_FROM_8);
+                    break;
+                case 8:
+                    goToQuiz(ALL_QUESTION_FROM_9);
+                    break;
+                case 9:
+                    goToQuiz(ALL_QUESTION_FROM_10);
+                    break;
+
+            }
+
+        }else {
+            goToProgress(position);
+        }
+    }
+
+    public void daoInitialization(){
+        questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
+        questionDao = questionAppDatabase.getQuestionDAO();
     }
 
 
