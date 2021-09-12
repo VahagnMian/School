@@ -296,7 +296,7 @@ public class QuizActivity extends AppCompatActivity {
         }
     });}
 
-  public void changeRadioButtonDesignUnchecked(RadioButton radioButton){
+    public void changeRadioButtonDesignUnchecked(RadioButton radioButton){
         radioButton.setBackgroundResource(R.drawable.background_style);
         radioButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.radio_button_style, 0);
 

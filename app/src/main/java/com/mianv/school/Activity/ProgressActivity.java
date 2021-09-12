@@ -25,8 +25,12 @@ import android.widget.TextView;
 
 import com.mianv.school.Database.QuestionAppDatabase;
 import com.mianv.school.Database.QuestionDao;
+import com.mianv.school.Model.Question;
 import com.mianv.school.R;
 import com.mianv.school.Util.QuestionBank;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressActivity extends AppCompatActivity {
 
@@ -47,7 +51,7 @@ public class ProgressActivity extends AppCompatActivity {
 
 
 
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +89,7 @@ public class ProgressActivity extends AppCompatActivity {
                //thirdSectionNotAnswered = questionDao.get2SectionNotAnsweredQuestions().size();
                //break;
             case THIRD_SECTION_CARD:
+                ArrayList<Question> section3Questions = (ArrayList<Question>) questionDao.get3SectionWrongQuestions();
                 thirdSectionCorrect = questionDao.get3SectionCorrectQuestions().size();
                 thirdSectionWrong = questionDao.get3SectionWrongQuestions().size();
                 thirdSectionNotAnswered = questionDao.get3SectionNotAnsweredQuestions().size();
@@ -187,14 +192,12 @@ public class ProgressActivity extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*if (cardView == findViewById(R.id.correctCardView)){
-                    startIntentAndPutTag(CORRECT_QUESTIONS_FROM_1);
-                }else if (cardView ==  findViewById(R.id.wrongCardView)){
-                    startIntentAndPutTag(WRONG_QUESTIONS_FROM_1);
-                }else if (cardView == findViewById(R.id.notAnswredCardView)){
-                    startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_1);
-                }*/
 
+
+
+                 int rid = R.id.correctCardView;
+                int id  = cardView.getId();
+                int vid = v.getId();
 
            if (tag == FIRST_SECTION_CARD) {
                switch (cardView.getId()) {
@@ -202,10 +205,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_1);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_1);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_1);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_1);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_1);
                        break;
 
                }  //+
@@ -215,23 +218,23 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_2);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_2);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_2);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_2);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_2);
                        break;
 
                }   //+
-           }else if (tag == FIRST_SECTION_CARD){
+           }else if (tag == THIRD_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_3);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_3);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_3);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_3);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_3);
                        break;
 
                }  //+
@@ -241,10 +244,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_4);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_4);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_4);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_4);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_4);
                        break;
 
                }  //+
@@ -254,10 +257,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_5);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_5);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_5);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_5);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_5);
                        break;
 
                }  //+
@@ -267,10 +270,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_6);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_6);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_6);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_6);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_6);
                        break;
 
                } //+
@@ -280,10 +283,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_7);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_7);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_7);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_7);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_7);
                        break;
 
                }  //+
@@ -293,10 +296,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_8);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_8);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_8);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_8);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_8);
                        break;
 
                }  //+
@@ -306,10 +309,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_9);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_9);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_9);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_9);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_9);
                        break;
 
                }
@@ -319,10 +322,10 @@ public class ProgressActivity extends AppCompatActivity {
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_10);
                        break;
                    case R.id.wrongCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_10);
+                       startIntentAndPutTag(WRONG_QUESTIONS_FROM_10);
                        break;
                    case R.id.notAnswredCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_10);
+                       startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_10);
                        break;
 
                }
@@ -334,7 +337,7 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
         public void startIntentAndPutTag(int question_tag){
-        Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+        Intent intent = new Intent(ProgressActivity.this, QuizActivity.class);
         intent.putExtra("whichSection", question_tag);
         startActivity(intent);
     }

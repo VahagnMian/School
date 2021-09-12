@@ -54,7 +54,7 @@ public interface QuestionDao {
     @Query("select * from questions where id >= 62 and id <= 120 and correct_answer == user_answer")
     public List<Question> get3SectionCorrectQuestions();
 
-    @Query("select * from questions where id >= 62 and id <= 120 and correct_answer != user_answer AND correct_answer != 0")
+    @Query("select * from questions where id >= 62 and id <= 120 and correct_answer != user_answer AND user_answer != 0")
     public List<Question> get3SectionWrongQuestions();
 
     @Query("select * from questions where id >= 62 and id <= 120 and user_answer == 0")
