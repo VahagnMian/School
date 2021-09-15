@@ -3157,7 +3157,7 @@ public class Constants {
     //Section - 8 -
 
     //1-5
-    private static final Question section8Question385 = new Question(385, 3,
+    private static final Question section8Question385 = new Question(385, R.drawable.image_385,3,
             "Ի՞նչ առավելագույն արագությամբ է թույլատրվում թեթև մարդատար\n" +
                     "ավտոմոբիլների երթևեկությունը ճանապարհներին` բնակավայրերից\n" +
                     "դուրս",
@@ -3300,7 +3300,7 @@ public class Constants {
             "Կոշտ կցիչով",
             "Մասնակի բեռնման եղանակով");
 
-    private static final Question section8Question401 = new Question(401, 2,
+    private static final Question section8Question401 = new Question(401, R.drawable.image_401, 2,
             "Ինչպիսի՞ առավելագույն արագությամբ կարող է իրականացվել\n" +
                     "քարշակումը տվյալ պայմաններում",
             "30 կմ/ժ",
@@ -3308,7 +3308,7 @@ public class Constants {
             "70 կմ/ժ",
             "80 կմ/ժ");
 
-    private static final Question section8Question402 = new Question(385, 4,
+    private static final Question section8Question402 = new Question(402, 4,
             "Թույլատրվու՞մ է արդյոք ճկուն կամ կոշտ կցիչով քարշակման դեպքում\n" +
                     "մարդկանց փոխադրումը քարշակվող մեխանիկական տրանսպորտային\n" +
                     "միջոցում",
@@ -3592,7 +3592,7 @@ public class Constants {
             "Թույլատրվում է");
 
 
-    private static final Question section8Question433 = new Question(433, 2,
+    private static final Question section8Question433 = new Question(433, R.drawable.image_433, 2,
             "Այս նշանի առկայության դեպքում ի՞նչ առավելագույն արագությամբ\n" +
                     "երթևեկելու իրավունք ունեն միջքաղաքային ավտոբուսների\n" +
                     "վարորդները",
@@ -3615,7 +3615,7 @@ public class Constants {
 
 
      //51-55
-    private static final Question section8Question435 = new Question(435, 4,
+    private static final Question section8Question435 = new Question(435, R.drawable.image_435, 4,
             "Ի՞նչ առավելագույն արագությամբ կարող է երթևեկել միջքաղաքային\n" +
                     "ավտոբուսի վարորդը տվյալ իրավիճակում",
             "60 կմ/ժ",
@@ -3624,7 +3624,7 @@ public class Constants {
             "90 կմ/ժ");
 
 
-    private static final Question section8Question436 = new Question(436, 3,
+    private static final Question section8Question436 = new Question(436, R.drawable.image_436,3,
             "Ի՞նչ արագությամբ կարող է շարունակել երթևեկությունը ավտոբուսի\n" +
                     "վարորդը տվյալ ճանապարհային նշանով նշված գոտում",
             "60 կմ/ժ-ից պակաս",
@@ -3632,21 +3632,21 @@ public class Constants {
             "Ոչ պակաս 60 կմ/ժ բայց ոչ ավելի քան 90 կմ/ժ");
 
 
-    private static final Question section8Question437 = new Question(437, 1,
+    private static final Question section8Question437 = new Question(437, R.drawable.image_437,1,
             "Այս նշանով կահավորված ճանապարհներին միջքաղաքային\n" +
                     "ավտոբուսների վարորդներն իրավունք ունեն երթևեկելու ոչ ավելի քան`",
             "60 կմ/ժ արագությամբ",
             "80 կմ/ժ արագությամբ",
             "90 կմ/ժ արագությամբ");
 
-    private static final Question section8Question438 = new Question(438, 3,
+    private static final Question section8Question438 = new Question(438, R.drawable.image_438,3,
             "Այս նշանով կահավորված ճանապարհներին միջքաղաքային\n" +
                     "ավտոբուսների վարորդներն իրավունք ունեն երթևեկելու ոչ ավել քան`",
             "60 կմ/ժ",
             "80 կմ/ժ",
             "90 կմ/ժ");
 
-    private static final Question section8Question439 = new Question(439, 1,
+    private static final Question section8Question439 = new Question(439, R.drawable.image_439,1,
             "Թույլատրվու՞մ է ուղևորների փոխադրումը ավտոբուսի սրահում տվյալ\n" +
                     "իրավիճակում",
             "Արգելվում է",
@@ -3683,7 +3683,7 @@ public class Constants {
             "110 կմ/ժ");
 
 
-    private static final Question section8Question443 = new Question(443, 3,
+    private static final Question section8Question443 = new Question(443, R.drawable.image_443,3,
             "Ի՞նչ առավելագույն արագությամբ է թույլատրվում ավտոբուսի\n" +
                     "երթևեկությունը այս ճանապարհային նշանի ազդեցության\n" +
                     "ճանապարհահատվածներում",
@@ -3715,7 +3715,7 @@ public class Constants {
             "20 կմ/ժ ոչ ավելի");
 
 
-    private static final Question section8Question446 = new Question(446, 5,
+    private static final Question section8Question446 = new Question(446, R.drawable.image_446,5,
             "Ի՞նչ առավելագույն արագությամբ է թույլատրվում թեթև մարդատար\n" +
                     "ավտոմոբիլների երթևեկությունը այս ճանապարհային նշանի\n" +
                     "ազդեցության ճանապարհահատվածներում",
