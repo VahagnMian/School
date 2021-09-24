@@ -135,7 +135,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
-
+        //Initializing <questions ArrayList> depend on passed Extra (from MainActivity or ProgressActivity)
         switch (tag){
 
             case CORRECT_QUESTIONS_FROM_1:
@@ -152,6 +152,23 @@ public class QuizActivity extends AppCompatActivity {
                 break;
             case ALL_QUESTION_FROM_1:
                 questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get1SectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+            case CORRECT_QUESTIONS_FROM_2:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get2SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_2:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get2SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_2:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get2SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_2:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get2SectionQuestions();
                 removeUserAnswer(questions);
                 break;
 
@@ -175,6 +192,145 @@ public class QuizActivity extends AppCompatActivity {
                 removeUserAnswer(questions);
                 break;
 
+                //Section 4
+
+            case CORRECT_QUESTIONS_FROM_4:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get4SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_4:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get4SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_4:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get4SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_4:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get4SectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
+                //Section 5
+
+            case CORRECT_QUESTIONS_FROM_5:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get5SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_5:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get5SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_5:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get5SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_5:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get5SectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
+                //Section 6
+
+            case CORRECT_QUESTIONS_FROM_6:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get6SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_6:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get6SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_6:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get6SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_6:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get6SectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
+                //Section 7
+
+            case CORRECT_QUESTIONS_FROM_7:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get7SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_7:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get7SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_7:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get7SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_7:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get7sectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+                //Section 8
+
+            case CORRECT_QUESTIONS_FROM_8:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get8SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_8:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get8SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_8:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get8SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_8:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get8sectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+                //Section 9
+
+            case CORRECT_QUESTIONS_FROM_9:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get9SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_9:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get9SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_9:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get9SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_9:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get9sectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
+                //Section 10
+
+            case CORRECT_QUESTIONS_FROM_10:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get10SectionCorrectQuestions();
+                removeUserAnswer(questions);
+                break;
+            case WRONG_QUESTIONS_FROM_10:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get10SectionWrongQuestions();
+                removeUserAnswer(questions);
+                break;
+            case NOT_ANSWERED_QUESTIONS_FROM_10:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get10SectionNotAnsweredQuestions();
+                removeUserAnswer(questions);
+                break;
+            case ALL_QUESTION_FROM_10:
+                questions = (ArrayList<Question>) questionAppDatabase.getQuestionDAO().get10sectionQuestions();
+                removeUserAnswer(questions);
+                break;
+
+
+
 
         }
 
@@ -186,7 +342,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void incrementIndexOfQuestion(){
-        questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/");
+        questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/" + questions.size());
     }
 
     public void setCheckedId(){

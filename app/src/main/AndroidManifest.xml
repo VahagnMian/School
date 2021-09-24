@@ -16,7 +16,8 @@
         <activity
             android:name=".Activity.QuizActivity"
             android:exported="true" />
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name=".Activity.MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

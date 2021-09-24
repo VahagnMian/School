@@ -1,18 +1,37 @@
 package com.mianv.school.Activity;
 
-import static com.mianv.school.Util.Util.*;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_1;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_10;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_2;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_3;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_4;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_5;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_6;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_7;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_8;
+import static com.mianv.school.Util.Util.ALL_QUESTION_FROM_9;
+import static com.mianv.school.Util.Util.EIGHTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.FIFTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.FIRST_SECTION_CARD;
+import static com.mianv.school.Util.Util.FOURTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.NINTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.SECOND_SECTION_CARD;
+import static com.mianv.school.Util.Util.SEVENTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.SIXTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.TENTH_SECTION_CARD;
+import static com.mianv.school.Util.Util.THIRD_SECTION_CARD;
+import static com.mianv.school.Util.Util.codeExtraProgress;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.ScrollView;
-
 
 import com.mianv.school.Adapter.DashboardAdapter;
 import com.mianv.school.Database.QuestionAppDatabase;
@@ -36,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     private   ScrollView scrollView;
     private   QuestionAppDatabase questionAppDatabase;
     private   QuestionDao questionDao;
+    boolean flag = false;
+
+
 
 
     @Override
@@ -44,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        flag = true;
 
 
         daoInitialization();
@@ -55,20 +78,22 @@ public class MainActivity extends AppCompatActivity {
         addListenerToCardView();
 
 
-
-
-
-
-
-
-
-
-
-
     }
 
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (flag){
+            daoInitialization();
+            viewInitialization();
+            createRecyclerView();
+            addTestItemsToRecyclerView();
+            OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+            loadQuestionsToRoom();
+            addListenerToCardView();
+        }
+    }
 
     public void goToProgress(int whichCard) {
 
@@ -132,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadQuestionsToRoom(){
         if (questionAppDatabase.getQuestionDAO().getAllQuestionsFromDB().size() == 0) {
-            for (int i = 0; i < Constants.allQuestions.length - 1; i++) {
+            for (int i = 0; i < Constants.allQuestions.length; i++) {
                 questionAppDatabase.getQuestionDAO().addQuestion(Constants.allQuestions[i]);
             }
 
@@ -153,17 +178,54 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+
+
     public void addTestItemsToRecyclerView(){
-        Card card1 = new Card(R.drawable.ic_arrows,"Թեմա 1" , "Մանևրում, դասավորվածություն \nերթևեկաելի \nմասում..." , 13, 61);
-        Card card2 = new Card(R.drawable.ic_law_hummer,"Թեմա 2" , "Օրենք" , 13, 61);
-        Card card3 = new Card(R.drawable.ic_gears,"Թեմա 3" , "Շահագործում" , 13, 61);
-        Card card4 = new Card(R.drawable.ic_road_sign,"Թեմա 4" , "Նշաններ" , 13, 61);
-        Card card5 = new Card(R.drawable.ic_cross_road_1,"Թեմա 5" , "Խաչմերուկ 1" , 13, 61);
-        Card card6 = new Card(R.drawable.ic_cross_road_2,"Թեմա 6" , "Խաչմերուկ 2" , 13, 61);
-        Card card7 = new Card(R.drawable.ic_parking,"Թեմա 7" , "Ճանապարհային գծանշում, կանգառ, կայանում" , 13, 61);
-        Card card8 = new Card(R.drawable.ic_big_car,"Թեմա 8" , "Արագություն, քարշակում, մարդկանց և բեռնեռրի փոխադրում" , 13, 61);
-        Card card9 = new Card(R.drawable.ic_waning_polygon,"Թեմա 9" , "Նախազգուշացնող ազդանշաններ, հատուկ ազդանշաններ․․․" , 13, 61);
-        Card card10 = new Card(R.drawable.ic_medkit,"Թեմա 10" , "Երթևեկության մասնակիցների կյանքի անվտանգություն․․․" , 13, 61);
+
+        int get1SectionCorrect = questionDao.get1SectionCorrectQuestions().size();
+            int get1SectionAll = questionDao.get1SectionQuestions().size();
+
+        int get2SectionCorrect = questionDao.get2SectionCorrectQuestions().size();
+            int get2SectionAll = questionDao.get2SectionQuestions().size();
+
+        int get3SectionCorrect = questionDao.get3SectionCorrectQuestions().size();
+             int get3SectionAll = questionDao.get3SectionQuestions().size();
+
+        int get4SectionCorrect = questionDao.get4SectionCorrectQuestions().size();
+            int get4SectionAll = questionDao.get4SectionQuestions().size();
+
+        int get5SectionCorrect = questionDao.get5SectionCorrectQuestions().size();
+            int get5SectionAll = questionDao.get5SectionQuestions().size();
+
+        int get6SectionCorrect = questionDao.get6SectionCorrectQuestions().size();
+            int get6SectionAll = questionDao.get6SectionQuestions().size();
+
+        int get7SectionCorrect = questionDao.get7SectionCorrectQuestions().size();
+            int get7SectionAll = questionDao.get7sectionQuestions().size();
+
+        int get8SectionCorrect = questionDao.get8SectionCorrectQuestions().size();
+             int get8SectionAll = questionDao.get8sectionQuestions().size();
+
+        int get9SectionCorrect = questionDao.get9SectionCorrectQuestions().size();
+            int get9SectionAll = questionDao.get9sectionQuestions().size();
+
+        int get10SectionCorrect = questionDao.get10SectionCorrectQuestions().size();
+            int get10SectionAll = questionDao.get10sectionQuestions().size();
+
+
+
+        Card card1 = new Card(R.drawable.ic_arrows,"Թեմա 1" , "Մանևրում, դասավորվածություն \nերթևեկաելի \nմասում..." , get1SectionCorrect, get1SectionAll);
+        Card card2 = new Card(R.drawable.ic_law_hummer,"Թեմա 2" , "Օրենք" , get2SectionCorrect, get2SectionAll);
+        Card card3 = new Card(R.drawable.ic_gears,"Թեմա 3" , "Շահագործում" , get3SectionCorrect, get3SectionAll);
+        Card card4 = new Card(R.drawable.ic_road_sign,"Թեմա 4" , "Նշաններ" , get4SectionCorrect, get4SectionAll);
+        Card card5 = new Card(R.drawable.ic_cross_road_1,"Թեմա 5" , "Խաչմերուկ 1" , get5SectionCorrect, get5SectionAll);
+        Card card6 = new Card(R.drawable.ic_cross_road_2,"Թեմա 6" , "Խաչմերուկ 2" , get6SectionCorrect, get6SectionAll);
+        Card card7 = new Card(R.drawable.ic_parking,"Թեմա 7" , "Ճանապարհային գծանշում, կանգառ, կայանում" , get7SectionCorrect, get7SectionAll);
+        Card card8 = new Card(R.drawable.ic_big_car,"Թեմա 8" , "Արագություն, քարշակում, մարդկանց և բեռնեռրի փոխադրում" , get8SectionCorrect, get8SectionAll);
+        Card card9 = new Card(R.drawable.ic_waning_polygon,"Թեմա 9" , "Նախազգուշացնող ազդանշաններ, հատուկ ազդանշաններ․․․" , get9SectionCorrect, get9SectionAll);
+        Card card10 = new Card(R.drawable.ic_medkit,"Թեմա 10" , "Երթևեկության մասնակիցների կյանքի անվտանգություն․․․" , get10SectionCorrect, get10SectionAll);
 
 
 
@@ -242,50 +304,50 @@ public class MainActivity extends AppCompatActivity {
                 checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 0);
                 break;
             case 1:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get2SectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 1);
+                break;
             case 2:
                 getNSectionNotAnsweredQuestions = questionDao.get3SectionNotAnsweredQuestions().size();
                 getNSectionQuestions = questionDao.get3SectionQuestions().size();
                 checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 2);
                 break;
             case 3:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get4SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get4SectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 3);
+                break;
             case 4:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get5SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get5SectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 4);
+                break;
             case 5:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get6SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get6SectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 5);
+                break;
             case 6:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get7SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get7sectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 6);
+                break;
             case 7:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get8SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get8sectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 7);
+                break;
             case 8:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-               //break;
+                getNSectionNotAnsweredQuestions = questionDao.get9SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get9sectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 8);
+               break;
             case 9:
-                //getNSectionNotAnsweredQuestions = questionDao.get2SectionNotAnsweredQuestions().size();
-                //getNSectionQuestions = questionDao.get2SectionQuestions().size();
-                //checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, position);
-                //break;
+                getNSectionNotAnsweredQuestions = questionDao.get10SectionNotAnsweredQuestions().size();
+                getNSectionQuestions = questionDao.get10sectionQuestions().size();
+                checkQuestionsQuantityAndCompare(getNSectionNotAnsweredQuestions, getNSectionQuestions, 9);
+                break;
 
 
         }

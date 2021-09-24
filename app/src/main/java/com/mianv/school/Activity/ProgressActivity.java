@@ -84,51 +84,51 @@ public class ProgressActivity extends AppCompatActivity {
                 thirdSectionNotAnswered = questionDao.get1SectionNotAnsweredQuestions().size();
                 break;
             case SECOND_SECTION_CARD:
-               //thirdSectionCorrect = questionDao.get2SectionCorrectQuestions().size();
-               //thirdSectionWrong = questionDao.get2SectionWrongQuestions().size();
-               //thirdSectionNotAnswered = questionDao.get2SectionNotAnsweredQuestions().size();
-               //break;
+               thirdSectionCorrect = questionDao.get2SectionCorrectQuestions().size();
+               thirdSectionWrong = questionDao.get2SectionWrongQuestions().size();
+               thirdSectionNotAnswered = questionDao.get2SectionNotAnsweredQuestions().size();
+               break;
             case THIRD_SECTION_CARD:
-                ArrayList<Question> section3Questions = (ArrayList<Question>) questionDao.get3SectionWrongQuestions();
+                //ArrayList<Question> section3Questions = (ArrayList<Question>) questionDao.get3SectionWrongQuestions();
                 thirdSectionCorrect = questionDao.get3SectionCorrectQuestions().size();
                 thirdSectionWrong = questionDao.get3SectionWrongQuestions().size();
                 thirdSectionNotAnswered = questionDao.get3SectionNotAnsweredQuestions().size();
                 break;
             case FOURTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get4SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get4SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get4SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get4SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get4SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get4SectionNotAnsweredQuestions().size();
+                break;
             case FIFTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get5SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get5SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get5SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get5SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get5SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get5SectionNotAnsweredQuestions().size();
+                break;
             case SIXTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get6SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get6SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get6SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get6SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get6SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get6SectionNotAnsweredQuestions().size();
+                break;
             case SEVENTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get7SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get7SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get7SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get7SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get7SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get7SectionNotAnsweredQuestions().size();
+                break;
             case EIGHTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get8SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get8SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get8SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get8SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get8SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get8SectionNotAnsweredQuestions().size();
+                break;
             case NINTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get9SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get9SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get9SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get9SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get9SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get9SectionNotAnsweredQuestions().size();
+                break;
             case TENTH_SECTION_CARD:
-                //thirdSectionCorrect = questionDao.get10SectionCorrectQuestions().size();
-                //thirdSectionWrong = questionDao.get10SectionWrongQuestions().size();
-                //thirdSectionNotAnswered = questionDao.get10SectionNotAnsweredQuestions().size();
-                //break;
+                thirdSectionCorrect = questionDao.get10SectionCorrectQuestions().size();
+                thirdSectionWrong = questionDao.get10SectionWrongQuestions().size();
+                thirdSectionNotAnswered = questionDao.get10SectionNotAnsweredQuestions().size();
+                break;
 
 
         }
@@ -155,6 +155,7 @@ public class ProgressActivity extends AppCompatActivity {
                     break;
                 case FIFTH_SECTION_CARD:
                     bindProgressToTextViews(FIFTH_SECTION_CARD);
+                    break;
                 case SIXTH_SECTION_CARD:
                     bindProgressToTextViews(SIXTH_SECTION_CARD);
                     break;
@@ -188,39 +189,47 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
-        public void addListenerToCardView(CardView cardView){
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.onStop();
+    }
+
+    public void addListenerToCardView(CardView cardView){
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
 
-                 int rid = R.id.correctCardView;
-                int id  = cardView.getId();
-                int vid = v.getId();
-
            if (tag == FIRST_SECTION_CARD) {
                switch (cardView.getId()) {
                    case R.id.correctCardView:
-                       startIntentAndPutTag(CORRECT_QUESTIONS_FROM_1);
+                       if (questionDao.get1SectionCorrectQuestions().size() != 0)
+                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_1);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get1SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_1);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get1SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_1);
                        break;
 
-               }  //+
+               }
            }else if (tag == SECOND_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get2SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_2);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get2SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_2);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get2SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_2);
                        break;
 
@@ -228,12 +237,15 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == THIRD_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get3SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_3);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get3SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_3);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get3SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_3);
                        break;
 
@@ -241,12 +253,15 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == FOURTH_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get4SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_4);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get4SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_4);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get4SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_4);
                        break;
 
@@ -254,12 +269,15 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == FIFTH_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get5SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_5);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get5SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_5);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get5SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_5);
                        break;
 
@@ -267,12 +285,15 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == SIXTH_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get6SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_6);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get6SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_6);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get6SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_6);
                        break;
 
@@ -280,12 +301,15 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == SEVENTH_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get7SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_7);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get7SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_7);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get7SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_7);
                        break;
 
@@ -293,25 +317,32 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == EIGHTH_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get8SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_8);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get8SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_8);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get8SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_8);
                        break;
 
                }  //+
            }else if (tag == NINTH_SECTION_CARD){
                switch (cardView.getId()) {
+
                    case R.id.correctCardView:
+                       if (questionDao.get9SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_9);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get9SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_9);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get9SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_9);
                        break;
 
@@ -319,12 +350,15 @@ public class ProgressActivity extends AppCompatActivity {
            }else if (tag == TENTH_SECTION_CARD){
                switch (cardView.getId()) {
                    case R.id.correctCardView:
+                       if (questionDao.get10SectionCorrectQuestions().size() != 0)
                        startIntentAndPutTag(CORRECT_QUESTIONS_FROM_10);
                        break;
                    case R.id.wrongCardView:
+                       if (questionDao.get10SectionWrongQuestions().size() != 0)
                        startIntentAndPutTag(WRONG_QUESTIONS_FROM_10);
                        break;
                    case R.id.notAnswredCardView:
+                       if (questionDao.get10SectionNotAnsweredQuestions().size() != 0)
                        startIntentAndPutTag(NOT_ANSWERED_QUESTIONS_FROM_10);
                        break;
 

@@ -908,7 +908,7 @@ public class Constants {
             "2",
             "3",
             "4",
-            "3");
+            "5");
 
     private static final Question section4Question123 = new Question(123, R.drawable.image_123,3,
             "Թույլատրվու՞մ է արդյոք մուտք գործել այս նշանով նշված գոտի աջ\n" +
@@ -3143,21 +3143,21 @@ public class Constants {
 
 
     //6-10
-    private static final Question section8Question390 = new Question(385, 3,
+    private static final Question section8Question390 = new Question(390, 3,
             "Ո՞ր ուղղությամբ է թույլատրվում երթևեկությունը",
             "Միայն ուղիղ",
             "Ուղիղ և դեպի աջ",
             "Ուղիղ, դեպի աջ և դեպի ձախ",
             "Բոլոր ուղղություններով");
 
-    private static final Question section8Question391 = new Question(385, 2,
+    private static final Question section8Question391 = new Question(391, 2,
             "Միջքաղաքային ավտոբուսների երթևեկությունը բնակավայրերից դուրս\n" +
                     "թույլատրվում է՝",
             "70 կմ/ժ ոչ ավելի արագությամբ",
             "90 կմ/ժ ոչ ավելի արագությամբ",
             "110 կմ/ժ ոչ ավելի արագությամբ");
 
-    private static final Question section8Question392 = new Question(385, 1,
+    private static final Question section8Question392 = new Question(392, 1,
             "Ի՞նչ արագությամբ է թույլատրվում երթևեկել 3.5 տ ոչ ավելի\n" +
                     "թույլատրելի առավելագույն զանգված ունեցող բեռնատար\n" +
                     "ավտոմոբիլներով՝ բնակավայրերից դուրս",
@@ -3165,7 +3165,7 @@ public class Constants {
             "70 կմ/ժ արագությունից ոչ ավելի",
             "80 կմ/ժ արագությունից ոչ ավելի");
 
-    private static final Question section8Question393 = new Question(385, 3,
+    private static final Question section8Question393 = new Question(393, 3,
             "Թույլատրվու՞մ է արդյոք մերձքաղաքային, միջմարզային եւ\n" +
                     "միջքաղաքային ավտոբուսների վարորդներին բնակավայրերում\n" +
                     "գերազանցել 60 կմ/ժ արագությունը",
@@ -3174,7 +3174,7 @@ public class Constants {
             "Թույլատրվում է",
             "Արգելվում է");
 
-    private static final Question section8Question394 = new Question(385, 2,
+    private static final Question section8Question394 = new Question(394, 2,
             "Թույլատրվու՞մ է արդյոք միջքաղաքային ավտոբուսի վարորդին\n" +
                     "բնակավայրերից դուրս գերազանցել 70 կմ/ժ արագությունը",
             "Թույլատրվում է` միայն երթևեկության համար տվյալ ուղղությամբ\n" +
@@ -3187,7 +3187,7 @@ public class Constants {
 
 
     //11-15
-    private static final Question section8Question395 = new Question(385, 1,
+    private static final Question section8Question395 = new Question(395, 1,
             "Քարշակման ժամանակ վթարային լուսային ազդանշանի\n" +
                     "բացակայության կամ անսարքության դեպքում, «Վթարային կանգառ»\n" +
                     "նշանը տեղադրվում է՝",
@@ -3197,7 +3197,7 @@ public class Constants {
                     "տեսանելի տեղում");
 
 
-    private static final Question section8Question396 = new Question(385, 3,
+    private static final Question section8Question396 = new Question(396, 3,
             "Կոշտ կցիչով քարշակման ժամանակ տրանսպորտային միջոցների միջև\n" +
                     "հեռավորությունը չպետք է գերազանցի՝",
             "2 մ",
@@ -3206,7 +3206,7 @@ public class Constants {
             "5 մ",
             "6 մ");
 
-    private static final Question section8Question397 = new Question(385, 3,
+    private static final Question section8Question397 = new Question(397, 3,
             "Թույլատրվու՞մ է արդյոք կոշտ կամ ճկուն կցիչով քարշակման ժամանակ\n" +
                     "մարդկանց փոխադրումը բեռնատար ավտոմոբիլի թափքում՝",
             "Թույլատրվում է քարշակող և քարշակվող ավտոմոբիլների թափքում",
@@ -3214,7 +3214,7 @@ public class Constants {
             "Թույլատրվում է միայն քարշակող ավտոմոբիլի թափքում",
             "Երկու ավտոմոբիլների թափքում էլ արգելվում է");
 
-    private static final Question section8Question398 = new Question(385, 2,
+    private static final Question section8Question398 = new Question(398, 2,
             "Թույլատրվու՞մ է արդյոք մարդկանց փոխադրումը քարշակվող\n" +
                     "ավտոմոբիլում",
             "Թույլատրվում է ավտոբուսում",
@@ -3222,7 +3222,7 @@ public class Constants {
             "Թույլատրվում է բեռնատար ավտոմոբիլի թափքում՝ կոշտ կցիչով\n" +
                     "քարշարկելիս");
 
-    private static final Question section8Question399 = new Question(385, 3,
+    private static final Question section8Question399 = new Question(399, 3,
             "Ի՞նչ առավելագույն արագությամբ է թույլատրվում երթևեկությունը՝\n" +
                     "մեխանիկական տրանսպորտային միջոցներով քարշակում կատարելիս",
             "30 կմ/ժ",
@@ -3269,7 +3269,7 @@ public class Constants {
             "Թույլատրվում է՝ կոշտ կցիչով կամ մասնակի բեռնման եղանակով\n" +
                     "քարշակելիս");
 
-    private static final Question section8Question404 = new Question(385, 3,
+    private static final Question section8Question404 = new Question(404, 3,
             "Ինչպիսի՞ առավելագույն արագությամբ է թույլատրվում\n" +
                     "տրանսպորտային միջոցների քարշակումը ճկուն կցիչով",
             "70 կմ/ժ",
@@ -3301,7 +3301,7 @@ public class Constants {
             "70 կմ/ժ");
 
 
-    private static final Question section8Question407 = new Question(385, 1,
+    private static final Question section8Question407 = new Question(407, 1,
             "Թույլատրվու՞մ է արդյոք մոտոցիկլների քարշակումը",
             "Թույլատրվում է` կողային կցորդով մոտոցիկլների քարշակումը",
             "Թույլատրվում է` առանց կողային կցորդի մոտոցիկլների\n" +
@@ -3309,7 +3309,7 @@ public class Constants {
             "Թույլատրվում է` երկու դեպքում էլ");
 
 
-    private static final Question section8Question408 = new Question(385, 4,
+    private static final Question section8Question408 = new Question(408, 4,
             "Քարշարկման ժամանակ տրանսպորտային միջոցների միջև ի՞նչ\n" +
                     "հեռավորություն պետք է ապահովի ճկուն կցիչը",
             "1 - 3 մ",
@@ -3319,7 +3319,7 @@ public class Constants {
             "4 - 8 մ");
 
 
-    private static final Question section8Question409 = new Question(385, 3,
+    private static final Question section8Question409 = new Question(409, 3,
             "Ի՞նչ առավելագույն արագությամբ է թույլատրվում կցորդ քարշակող\n" +
                     "թեթև մարդատար ավտոմոբիլների երթևեկությունն ավտոմայրուղիներով\n" +
                     "երթևեկելիս",
@@ -3339,7 +3339,7 @@ public class Constants {
 
     //26-30
 
-    private static final Question section8Question410 = new Question(385, 1,
+    private static final Question section8Question410 = new Question(410, 1,
             "Կոշտ կցիչով քարշակման ժամանակ հեռավորությունը տրանսպորտային\n" +
                     "միջոցների միջև պետք է լինի ոչ ավելի՝",
             "4 մ-ից",
@@ -4937,7 +4937,7 @@ public class Constants {
 
 
     //11-15
-    private static final Question section2Question584 = new Question(574, 1  ,
+    private static final Question section2Question584 = new Question(584, 1  ,
             "«ճանապարհային Երթևեկության անվտանգության ապահովման մասին» ՀՀ օրենքի համաձայն Հայաստանի Հանրապետության \n" +
                     "ճանապարհներին սահմանվում է",
             "Աջակողմյան Երթևեկություն",
@@ -5062,7 +5062,7 @@ public class Constants {
 
 
     //26-30
-    private static final Question section2Question599 = new Question(574, 2  ,
+    private static final Question section2Question599 = new Question(599, 2  ,
             "«ճանապարհային ԵրթԵւԵկությաև անվտանգութ-ան ապահովման մասին։ ՀՀ օրենքի համաձայն՛ երթևեկելի մասով \n" +
                     "հեծանվորդներին արգելվում է երթեւեկել՝",
             "Առանց պաշտպանիչ ակնոցների",
@@ -5070,7 +5070,7 @@ public class Constants {
             "Երկու դեպքում էլ");
 
 
-    private static final Question section2Question600 = new Question(574, 3  ,
+    private static final Question section2Question600 = new Question(600, 3  ,
             "«ճանապարհային Երթևեկության անվտանգության ապահովման մասին» ՀՀ օրենքի համաձայն «8» և «Շ» կարգերի տրանսպորտային \n" +
                     "միջոցներ վարելու իրավունքի վկայական կարող է տրվել",
             "16 տարին լրացած անձանց",
@@ -5078,7 +5078,7 @@ public class Constants {
             "18 տարին լրացած անձանց");
 
 
-    private static final Question section2Question601 = new Question(574, 1  ,
+    private static final Question section2Question601 = new Question(601, 1  ,
             "«ճանապարհային երթևեկության անվտանգության ապահովման մասին» ՀՀ օրենքի համաձայն մոպեդ է համարվում՝",
             "Մինչև 50 սմ խորանարդ բանվորական ծավալի շարժիչով և մինչև 50 կմ/ժ առավելագույն արագությամբ երկանիվ \n" +
                     "կամ եռանիվ տրանսպորտային միջոցը",
@@ -5087,13 +5087,13 @@ public class Constants {
             "մինչև 70 սմ խորանարդ բանվորական ծավալի շարժիչով և մինչև 70 կմ/ժ առավելագույն արագությամբ երկանիվ \n" +
                     "կամ եռանիվ տրանսպորտային միջոցը");
 
-    private static final Question section2Question602 = new Question(574, 1  ,
+    private static final Question section2Question602 = new Question(602, 1  ,
             "«ճանապարհային երթևեկության անվտանգության ապահովման մասին» ՀՀ օրենքի համաձայն տրանսպորտային միջոց վարել \n" +
                     "սզվորեցնողը՛",
             "Հավասարեցվում է վարորդին",
             "Չի հավասարեցվում վարորդին");
 
-    private static final Question section2Question603 = new Question(574, 2  ,
+    private static final Question section2Question603 = new Question(603, 2  ,
             "«ճանապարհային երթևեկության անվտանգության ապահովման մասին» ՀՀ օրենքի համաձայն վթարային իրադրություն է համարվում",
             "երթևեկության մասնակցի գործողության և (կամ) անգործության հետևանքով առաջացած իրավիճակը, որի ժամանակ \n" +
                     "ստեղծվում է ճանապարհատրանսպորտային պատահարի իրական վտանգ",
@@ -5352,59 +5352,7 @@ public class Constants {
             question060,
             question061,
 
-            //Section - 2 - Total [574-624]
 
-            section2Question574,
-            section2Question575,
-            section2Question576,
-            section2Question577,
-            section2Question578,
-            section2Question579,
-            section2Question580,
-            section2Question581,
-            section2Question582,
-            section2Question583,
-            section2Question584,
-            section2Question585,
-            section2Question586,
-            section2Question587,
-            section2Question588,
-            section2Question589,
-            section2Question590,
-            section2Question591,
-            section2Question592,
-            section2Question593,
-            section2Question594,
-            section2Question595,
-            section2Question596,
-            section2Question597,
-            section2Question598,
-            section2Question599,
-            section2Question600,
-            section2Question601,
-            section2Question602,
-            section2Question603,
-            section2Question604,
-            section2Question605,
-            section2Question606,
-            section2Question607,
-            section2Question608,
-            section2Question609,
-            section2Question610,
-            section2Question611,
-            section2Question612,
-            section2Question613,
-            section2Question614,
-            section2Question615,
-            section2Question616,
-            section2Question617,
-            section2Question618,
-            section2Question619,
-            section2Question620,
-            section2Question621,
-            section2Question622,
-            section2Question623,
-            section2Question624,
 
             //Section 3 item starts from 62
 
@@ -5947,6 +5895,60 @@ public class Constants {
             section10Question571,
             section10Question572,
             section10Question573,
+
+            //Section - 2 - Total [574-624]
+
+            section2Question574,
+            section2Question575,
+            section2Question576,
+            section2Question577,
+            section2Question578,
+            section2Question579,
+            section2Question580,
+            section2Question581,
+            section2Question582,
+            section2Question583,
+            section2Question584,
+            section2Question585,
+            section2Question586,
+            section2Question587,
+            section2Question588,
+            section2Question589,
+            section2Question590,
+            section2Question591,
+            section2Question592,
+            section2Question593,
+            section2Question594,
+            section2Question595,
+            section2Question596,
+            section2Question597,
+            section2Question598,
+            section2Question599,
+            section2Question600,
+            section2Question601,
+            section2Question602,
+            section2Question603,
+            section2Question604,
+            section2Question605,
+            section2Question606,
+            section2Question607,
+            section2Question608,
+            section2Question609,
+            section2Question610,
+            section2Question611,
+            section2Question612,
+            section2Question613,
+            section2Question614,
+            section2Question615,
+            section2Question616,
+            section2Question617,
+            section2Question618,
+            section2Question619,
+            section2Question620,
+            section2Question621,
+            section2Question622,
+            section2Question623,
+            section2Question624,
 
 
 
