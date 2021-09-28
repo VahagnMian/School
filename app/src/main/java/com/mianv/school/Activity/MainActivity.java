@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private  DashboardAdapter adapter;
     private  RecyclerView.LayoutManager layoutManager;
     private  ArrayList<Card> cards;
-    private   ScrollView scrollView;
+    //private   ScrollView scrollView;
     private   QuestionAppDatabase questionAppDatabase;
     private   QuestionDao questionDao;
     boolean flag = false;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         viewInitialization();
         createRecyclerView();
         addTestItemsToRecyclerView();
-        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+       // OverScrollDecoratorHelper.setUpOverScroll(scrollView);
         loadQuestionsToRoom();
         addListenerToCardView();
 
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             viewInitialization();
             createRecyclerView();
             addTestItemsToRecyclerView();
-            OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+            //OverScrollDecoratorHelper.setUpOverScroll(scrollView);
             loadQuestionsToRoom();
             addListenerToCardView();
         }
@@ -168,12 +168,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void createRecyclerView(){
         cards = new ArrayList<>();
-        recyclerView = findViewById(R.id.dashboardRecyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         adapter = new DashboardAdapter(cards);
         layoutManager = new GridLayoutManager(this, 2 );
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        recyclerView.setNestedScrollingEnabled(false);
+       // recyclerView.setNestedScrollingEnabled(false);
 
 
     }
@@ -244,8 +244,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewInitialization(){
-        toolbar = findViewById(R.id.toolbar);
-        scrollView = findViewById(R.id.scroll_view);
+        //toolbar = findViewById(R.id.toolbar);
+        //scrollView = findViewById(R.id.scroll_view);
     }
 
     public void addListenerToCardView(){
