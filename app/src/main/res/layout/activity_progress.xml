@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Ճիշտ պատասխանված հարցեր"
+                android:text="Ճիշտ պատասխաններ"
                 android:textColor="#323232" />
 
             <TextView
@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Սխալ պատասխանված հարցեր"
+                android:text="Սխալ պատասխաններ"
                 android:textColor="#323232" />
 
             <TextView
@@ -122,7 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Չպատասխանված հարցեր"
+                android:text="Չլրացված հարցեր"
                 android:textColor="#323232" />
 
             <TextView
