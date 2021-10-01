@@ -189,13 +189,13 @@ public class ProgressActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
+        @Override
+        public void onBackPressed() {
         super.onBackPressed();
         this.onStop();
     }
 
-    public void addListenerToCardView(CardView cardView){
+        public void addListenerToCardView(CardView cardView){
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -57,7 +57,7 @@ public interface QuestionDao {
     @Query("SELECT * FROM questions WHERE id >= 574 and id <= 621 and correct_answer != user_answer AND correct_answer != 0")
     public List<Question> get2SectionWrongQuestions();
 
-    @Query("select * from questions where id >= 574 and id <= 621 and user_answer == 0")
+    @Query("select * from questions where id >= 574 and id <= 624 and user_answer == 0")
     public List<Question> get2SectionNotAnsweredQuestions();
 
     //Third section related queries

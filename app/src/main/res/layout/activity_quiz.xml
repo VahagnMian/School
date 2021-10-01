@@ -16,16 +16,7 @@
         android:textColor="#585858"
         android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/questionSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/questionText"
-        android:layout_marginLeft="78dp"
-        android:layout_marginTop="30dp"
-        android:text="61 "
-        android:textColor="#585858"
-        android:textSize="20dp" />
+
 
 
     <ImageView
@@ -56,18 +47,30 @@
         android:layout_below="@id/questionText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="6dp"
-        android:scaleType="centerCrop"
+
         android:src="@drawable/image_001"
 
         />
 
+
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+
+        android:layout_above="@+id/bottomAppBar"
+        android:layout_below="@+id/questionImage"
+        android:layout_centerHorizontal="true">
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/questionImage"
-        android:layout_marginTop="5dp"
-        android:layout_centerHorizontal="true">
+        android:layout_height="320dp"
+        android:orientation="vertical"
+        >
+
 
         <RadioButton
 
@@ -157,8 +160,13 @@
             android:text="5"
             android:textSize="14dp"
             android:layout_margin="5dp"/>
+
+
+
+
     </RadioGroup>
 
+    </ScrollView>
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -168,31 +176,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/white"
-        tools:ignore="BottomAppBar"
-        android:padding="10dp">
+        android:padding="10dp"
+        tools:ignore="BottomAppBar">
 
         <Button
             android:id="@+id/nextQuestionButton"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Հաջորդը"
-            android:textColor="@color/white"
+            android:layout_marginRight="10dp"
             android:backgroundTint="@color/main_primary"
+            android:text="Հաջորդը"
             android:textAllCaps="false"
-            android:layout_marginRight="10dp"/>
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/previousQuestionButton"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Նախորդը"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/main_primary"
-            android:textAllCaps="false"
             android:layout_marginLeft="10dp"
-            />
+            android:backgroundTint="@color/main_primary"
+            android:text="Նախորդը"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
 
     </com.google.android.material.bottomappbar.BottomAppBar>

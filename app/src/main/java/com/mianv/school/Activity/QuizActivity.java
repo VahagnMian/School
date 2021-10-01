@@ -30,11 +30,10 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton radioButton3;
     private RadioButton radioButton4;
     private RadioButton radioButton5;
-    private Button nextQuestion;
-    private Button previousQuestion;
+    private Button nextQuestionButton;
+    private Button previousQuestionButton;
     private TextView questionText;
     private TextView questionIndexText;
-    private TextView questionSizeText;
     private ImageView questionImage;
     private QuestionAppDatabase questionAppDatabase;
     private int tag;
@@ -50,12 +49,16 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+
+
         questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
         viewInitialization();
 
 
+
+
         if(currentIndex == 0){
-            previousQuestion.setVisibility(View.GONE);
+            previousQuestionButton.setVisibility(View.GONE);
         }
 
 
@@ -66,7 +69,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
         bindQuestionToViews(questions.get(currentIndex));
-        questionSizeText.setText(questions.size() + "");
+        incrementIndexOfQuestion(questions.get(currentIndex));
 
         addNextButtonListener();
         addPreviousButtonListener();
@@ -84,10 +87,14 @@ public class QuizActivity extends AppCompatActivity {
             questionImage.setVisibility(View.GONE);
         }
 
+
+        //Variant 1
         radioButton1.setText(question.getOptionOne());
+
+        //Variant 2
         radioButton2.setText(question.getOptionTwo());
 
-
+        //Variant 3
         if (question.getOptionThree() == null){
             radioButton3.setVisibility(View.GONE);
         }else {
@@ -95,6 +102,8 @@ public class QuizActivity extends AppCompatActivity {
             radioButton3.setText(question.getOptionThree());
         }
 
+
+        //Variant 4
         if (question.getOptionFour() == null){
             radioButton4.setVisibility(View.GONE);
         }else {
@@ -102,6 +111,9 @@ public class QuizActivity extends AppCompatActivity {
             radioButton4.setText(question.getOptionFour());
         }
 
+
+
+        //variant 5
         if (question.getOptionFive() == null){
             radioButton5.setVisibility(View.GONE);
         }else {
@@ -124,10 +136,9 @@ public class QuizActivity extends AppCompatActivity {
         radioButton3 = findViewById(R.id.radioButtonVariant3);
         radioButton4 = findViewById(R.id.radioButtonVariant4);
         radioButton5 = findViewById(R.id.radioButtonVariant5);
-        nextQuestion = findViewById(R.id.nextQuestionButton);
+        nextQuestionButton = findViewById(R.id.nextQuestionButton);
         questionIndexText = findViewById(R.id.questionCount);
-        questionSizeText = findViewById(R.id.questionSize);
-        previousQuestion = findViewById(R.id.previousQuestionButton);
+        previousQuestionButton = findViewById(R.id.previousQuestionButton);
 
         Intent intent = getIntent();
         tag = intent.getIntExtra("whichSection" , -1);
@@ -341,9 +352,7 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-    public void incrementIndexOfQuestion(){
-        questionIndexText.setText("Հարց " + questions.get(currentIndex).getId()+ "/" + questions.size());
-    }
+
 
     public void setCheckedId(){
         switch (radioGroup.getCheckedRadioButtonId()){
@@ -390,23 +399,23 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void addNextButtonListener(){
-        nextQuestion.setOnClickListener(new View.OnClickListener() {
+        nextQuestionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 currentIndex++;
                 if(currentIndex == questions.size()-1){
-                    nextQuestion.setVisibility(View.GONE);
+                    nextQuestionButton.setVisibility(View.GONE);
                 }
 
 
                 if (currentIndex>0){
-                    previousQuestion.setVisibility(View.VISIBLE);
+                    previousQuestionButton.setVisibility(View.VISIBLE);
                 }
 
 
                 Question currentQuestion = questions.get(currentIndex);
                 bindQuestionToViews(currentQuestion);
-                incrementIndexOfQuestion();
+                incrementIndexOfQuestion(currentQuestion);
                 radioGroup.setOnCheckedChangeListener(null);
                 radioGroup.clearCheck();
                 uncheckAllRadioGroup();
@@ -422,25 +431,25 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void addPreviousButtonListener(){
-        previousQuestion.setOnClickListener(new View.OnClickListener() {
+        previousQuestionButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
             currentIndex--;
 
             if (currentIndex != questions.size()){
-                nextQuestion.setVisibility(View.VISIBLE);
+                nextQuestionButton.setVisibility(View.VISIBLE);
             }
 
             Question currentQuestion = questions.get(currentIndex);
 
 
             if (currentIndex == 0){
-                previousQuestion.setVisibility(View.GONE);
+                previousQuestionButton.setVisibility(View.GONE);
             }
 
             bindQuestionToViews(currentQuestion);
-            incrementIndexOfQuestion();
+            incrementIndexOfQuestion(currentQuestion);
             radioGroup.setOnCheckedChangeListener(null);
             radioGroup.clearCheck();
             uncheckAllRadioGroup();
@@ -467,7 +476,7 @@ public class QuizActivity extends AppCompatActivity {
                  Question currentQuestion = questions.get(currentIndex);
                  currentQuestion.setUsersAnswer(checkedIdk);
 
-                 questions.add(currentQuestion);
+                 //questions.add(currentQuestion);
 
                  questionAppDatabase.getQuestionDAO().updateQuestion(currentQuestion);
 
@@ -516,7 +525,6 @@ public class QuizActivity extends AppCompatActivity {
                 radioGroup.check(getRadioButtonIdFromIndex(questions.get(currentIndex).getCorrectAnswer()));
             }else {
                 radioGroup.check(getRadioButtonIdFromIndex(currentQuestion.getUsersAnswer()));
-
             }
 
 
@@ -531,6 +539,49 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+
+
+    public void incrementIndexOfQuestion(Question question){
+
+        int  id =  question.getId();
+
+        int  secondResult = id - 573;
+        int  thirdResult = id - 61;
+        int  fourthResult = id - 120;
+        int  fifthResult = id - 205;
+        int  sixthResult = id - 266;
+        int  seventhResult = id - 318;
+        int  eighthResult = id - 384;
+        int  ninthResult = id - 446;
+        int  tenthResult = id - 436;
+
+
+
+
+        if(id>= 1 && id <= 61){
+            questionIndexText.setText("Հարց " + id + " / " + questions.size());
+        }else if (id>= 62 && id <= 120){
+            questionIndexText.setText("Հարց " + thirdResult + " / " + questions.size());
+        }else if (id>= 121 && id <= 205){
+            questionIndexText.setText("Հարց " + fourthResult + " / " + questions.size());
+        }else if (id>= 206 && id <= 266){
+            questionIndexText.setText("Հարց " + fifthResult + " / " + questions.size());
+        }else if (id>= 267 && id <= 318){
+            questionIndexText.setText("Հարց " + sixthResult + " / " + questions.size());
+        }else if (id>= 319 && id <= 384){
+            questionIndexText.setText("Հարց " + seventhResult + " / " + questions.size());
+        }else if (id>= 385 && id <= 446){
+            questionIndexText.setText("Հարց " + eighthResult + " / " + questions.size());
+        }else if (id>= 447 && id <= 536){
+            questionIndexText.setText("Հարց " + ninthResult + " / " + questions.size());
+        } else if (id>= 537 && id <= 573){
+            questionIndexText.setText("Հարց " + tenthResult + " / " + questions.size());
+        } else if (id>=574 && id<=624){
+            questionIndexText.setText("Հարց " + secondResult + " / " + questions.size());
+        }
+
+
+    }
 
 
 }
