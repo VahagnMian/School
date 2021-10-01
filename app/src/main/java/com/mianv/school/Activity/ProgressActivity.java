@@ -72,70 +72,69 @@ public class ProgressActivity extends AppCompatActivity {
         }
 
         public void bindProgressToTextViews(int whichSection){
-            int thirdSectionCorrect = 0;
-            int thirdSectionWrong = 0;
-            int thirdSectionNotAnswered = 0;
+            int sectionCorrect = 0;
+            int sectionWrong = 0;
+            int sectionNotAnswered = 0;
 
         switch (whichSection){
 
             case FIRST_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get1SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get1SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get1SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get1SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get1SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get1SectionNotAnsweredQuestions().size();
                 break;
             case SECOND_SECTION_CARD:
-               thirdSectionCorrect = questionDao.get2SectionCorrectQuestions().size();
-               thirdSectionWrong = questionDao.get2SectionWrongQuestions().size();
-               thirdSectionNotAnswered = questionDao.get2SectionNotAnsweredQuestions().size();
+               sectionCorrect = questionDao.get2SectionCorrectQuestions().size();
+               sectionWrong = questionDao.get2SectionWrongQuestions().size();
+               sectionNotAnswered = questionDao.get2SectionNotAnsweredQuestions().size();
                break;
             case THIRD_SECTION_CARD:
-                //ArrayList<Question> section3Questions = (ArrayList<Question>) questionDao.get3SectionWrongQuestions();
-                thirdSectionCorrect = questionDao.get3SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get3SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get3SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get3SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get3SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get3SectionNotAnsweredQuestions().size();
                 break;
             case FOURTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get4SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get4SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get4SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get4SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get4SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get4SectionNotAnsweredQuestions().size();
                 break;
             case FIFTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get5SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get5SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get5SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get5SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get5SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get5SectionNotAnsweredQuestions().size();
                 break;
             case SIXTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get6SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get6SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get6SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get6SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get6SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get6SectionNotAnsweredQuestions().size();
                 break;
             case SEVENTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get7SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get7SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get7SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get7SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get7SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get7SectionNotAnsweredQuestions().size();
                 break;
             case EIGHTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get8SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get8SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get8SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get8SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get8SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get8SectionNotAnsweredQuestions().size();
                 break;
             case NINTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get9SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get9SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get9SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get9SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get9SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get9SectionNotAnsweredQuestions().size();
                 break;
             case TENTH_SECTION_CARD:
-                thirdSectionCorrect = questionDao.get10SectionCorrectQuestions().size();
-                thirdSectionWrong = questionDao.get10SectionWrongQuestions().size();
-                thirdSectionNotAnswered = questionDao.get10SectionNotAnsweredQuestions().size();
+                sectionCorrect = questionDao.get10SectionCorrectQuestions().size();
+                sectionWrong = questionDao.get10SectionWrongQuestions().size();
+                sectionNotAnswered = questionDao.get10SectionNotAnsweredQuestions().size();
                 break;
 
 
         }
 
-            correctAnswersProgress.setText(thirdSectionCorrect + "");
-            wrongAnswersProgress.setText(thirdSectionWrong + "");
-            notAnsweredAnswerProgress.setText(thirdSectionNotAnswered + "");
+            correctAnswersProgress.setText(sectionCorrect + "");
+            wrongAnswersProgress.setText(sectionWrong + "");
+            notAnsweredAnswerProgress.setText(sectionNotAnswered + "");
 
         }
 

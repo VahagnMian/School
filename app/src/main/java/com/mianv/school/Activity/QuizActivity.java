@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -40,6 +41,7 @@ public class QuizActivity extends AppCompatActivity {
     private ArrayList<Question> questions;
     private int currentIndex = 0;
     private int checkedIdk;
+    private ImageButton homeButton;
 
 
 
@@ -139,6 +141,10 @@ public class QuizActivity extends AppCompatActivity {
         nextQuestionButton = findViewById(R.id.nextQuestionButton);
         questionIndexText = findViewById(R.id.questionCount);
         previousQuestionButton = findViewById(R.id.previousQuestionButton);
+        homeButton = findViewById(R.id.backHomeButton);
+
+
+
 
         Intent intent = getIntent();
         tag = intent.getIntExtra("whichSection" , -1);
@@ -345,7 +351,11 @@ public class QuizActivity extends AppCompatActivity {
 
         }
 
-
+        if(currentIndex == questions.size()-1){
+            homeButton.setVisibility(View.VISIBLE);
+        }else {
+            homeButton.setVisibility(View.GONE);
+        }
 
 
 
@@ -405,6 +415,7 @@ public class QuizActivity extends AppCompatActivity {
                 currentIndex++;
                 if(currentIndex == questions.size()-1){
                     nextQuestionButton.setVisibility(View.GONE);
+                    homeButton.setVisibility(View.VISIBLE);
                 }
 
 
@@ -553,7 +564,7 @@ public class QuizActivity extends AppCompatActivity {
         int  seventhResult = id - 318;
         int  eighthResult = id - 384;
         int  ninthResult = id - 446;
-        int  tenthResult = id - 436;
+        int  tenthResult = id - 536;
 
 
 
