@@ -5,6 +5,7 @@ package com.mianv.school.Activity;
 import static com.mianv.school.Util.Util.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.room.Room;
 
 import android.content.Intent;
@@ -50,7 +51,7 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
         questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
@@ -61,6 +62,10 @@ public class QuizActivity extends AppCompatActivity {
 
         if(currentIndex == 0){
             previousQuestionButton.setVisibility(View.GONE);
+        }
+
+        if(currentIndex+1 == questions.size()){
+            nextQuestionButton.setVisibility(View.GONE);
         }
 
 
@@ -77,6 +82,7 @@ public class QuizActivity extends AppCompatActivity {
         addPreviousButtonListener();
 
         radioGroupSetOnCheckedChangeListener();
+        backButtonSetOnClickListener();
     }
 
 
@@ -550,8 +556,6 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-
-
     public void incrementIndexOfQuestion(Question question){
 
         int  id =  question.getId();
@@ -592,6 +596,16 @@ public class QuizActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void backButtonSetOnClickListener(){
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuizActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

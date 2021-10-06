@@ -14,6 +14,7 @@ import static com.mianv.school.Util.Util.TENTH_SECTION_CARD;
 import static com.mianv.school.Util.Util.THIRD_SECTION_CARD;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.room.Room;
 
@@ -56,7 +57,7 @@ public class ProgressActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
         DaoInitialization();

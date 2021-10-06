@@ -24,7 +24,7 @@
         android:layout_height="5dp"
         android:layout_below="@id/questionCount"
         android:layout_alignStart="@id/questionCount"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layerType="software"
         android:layout_centerHorizontal="true"
         android:src="@drawable/dotted" />
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionCount"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:text="Նշաններից որն է կոչվում արգելքի շրջանցումը ձախից"
         android:textColor="#323232"
         android:textSize="15dp" />
