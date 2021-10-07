@@ -22,10 +22,16 @@ import static com.mianv.school.Util.Util.TENTH_SECTION_CARD;
 import static com.mianv.school.Util.Util.THIRD_SECTION_CARD;
 import static com.mianv.school.Util.Util.codeExtraProgress;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -78,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
        // OverScrollDecoratorHelper.setUpOverScroll(scrollView);
         loadQuestionsToRoom();
         addListenerToCardView();
+
+        Toast.makeText(MainActivity.this, "" +1920/1080, Toast.LENGTH_SHORT).show();
+
+
 
 
     }
@@ -173,9 +183,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new DashboardAdapter(cards);
         layoutManager = new GridLayoutManager(this, 2 );
+
+
+        if (getScreenHeight(this)/getScreenWidth(this) == 1){
+            recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, 20, true, 0));
+        }
+
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
        // recyclerView.setNestedScrollingEnabled(false);
+
+
 
 
     }
@@ -400,6 +418,32 @@ public class MainActivity extends AppCompatActivity {
     public void daoInitialization(){
         questionAppDatabase =Room.databaseBuilder(getApplicationContext(), QuestionAppDatabase.class,"QuestionsDB" ).allowMainThreadQueries().build();
         questionDao = questionAppDatabase.getQuestionDAO();
+    }
+
+
+
+    private int getScreenWidth(Context context){
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
+
+
+        return width;
+    }
+
+    private int getScreenHeight(Context context){
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int height = size.y;
+
+
+
+        return height;
+
     }
 
 
